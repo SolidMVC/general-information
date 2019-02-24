@@ -3,7 +3,7 @@ General Information
 
 **SolidMVC** - a GDPR-compliant micro-framework that based on collection of most popular coding-standards (PSR-2, PSR-4 Autoloaders, Semantic Versioning, Unicode CLDR support, BCNF Database Structure) and Technologies (Font-Awesome) to allow any Object-Oriented Software Architect from C# or Java, PHP Software Architects comming to WordPress from Symfony or Laravel, to pick-up and start coding in WordPress withing the same day, without any need to learn any new coding standards. I, as software architect, developed the SolidMVC together with professors and lectors from worlds TOP-500 universities, that are the creators of Software Engineering Master Degree courses of Software Architecture and Design courses. The SolidMVC was developed in 4 years (2015-2019) and is licensed under almost unlimited - MIT-license, meaning that it can be used for both - commercial and non-commercial use. The example MVP (Minimum Viable Product) of SolidMVC is at w.org as "[https://wordpress.org/plugins/expandable-faq/ Expandable FAQ]". 
 
-== **CODING STANDARDS ("Compliant With: <..>, <..>, <..>")**
+## **CODING STANDARDS ("Compliant With: <..>, <..>, <..>")**
 
 Coding Standards list can be a similar to **tag cloud** in StackOverflow - here defined tags can be added automatically, but the new tags has to be approved by moderator:
 
@@ -22,7 +22,7 @@ _Notes: Google also developed Google AMP for WordPress (Accelerated mobile pages
 
 ----
 
-== **MICRO-FRAMEWORK: <..>**
+## **MICRO-FRAMEWORK: <..>**
 
 2 of 3 modern medium+ size plugins and themes runs on some kind of micro-framework, developed by the company or MIT-open-sourced.
 
@@ -38,7 +38,7 @@ So keeping in mind, that I put 4 years to develop a micro-framework to create pl
 
 ----
 
-== **USE-CASES:**
+## **USE-CASES:**
 
 two example situations, when it would be super valuable:
 
