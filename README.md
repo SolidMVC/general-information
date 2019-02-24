@@ -55,9 +55,9 @@ The evidences bellow are based facts and research, plus sale results on my own s
 
 1. **"KNOW YOUR CUSTOMER".** At WordCamp Europe 2018 one of the main talks was "**WordPress in 2019**" by @noel_tock (Noel Tock), which was about where WordPress was 10 years ago and where it will be next year, and how it changed. Session - https://2018.europe.wordcamp.org/session/wordpress-in-2019/ , slides - https://www.slideshare.net/ntock/wordpress-in-2019 . From the attached images bellow, you see, that if in 2010 WordPress had a coverage from "representational "About.us" site" to the very complex website (enterprise solution), then in 2018 it is already different - the "About Us" websites are now fully covered by Facebook, for those who need a bit more modifications for the "About.us" websites - they use Wix.com. WordPress is used then, when either - privacy matters a lot, meaning everything has to be self-hosted, including internal analytics, no Google tracking, no policy given big company like Facebook - and Facebook does that a lot, it tries to set 'their favorable' political views, as well as even to use your friend as a 'product' by their newest "Include donation campaign to your birthday". So there is a lot of people who resist to that - but everyone who I met, who does resist to Facebook, does not install WhatsApp, Messenger or Facebook apps on their phones, and use Facebook only via Web - all they were **smart**, **tech-savvy** people. So they know what is PGP key, ProtonMail.ch, HTTPS and Signal App. Very often they also have at least basic understand about security, and this is where often pop-us questions about data validations and coding standards - they may not be a developers or so, but they have heard in one or another conference some term, what is secure and high-quality, and they want an "MVC website with S.O.L.I.D. and there has to be HTTPS and semantic versioning". Also they want "PHP7, and object-oriented code". That's what I hear often from those people. So despite they may not know exactly what it does, they got recommendations from their IT friends, on some Facebook IT group, to what to use for their product. So how to discover those WordPress plugins at w.org right now, whose code follows these security standards, and design principles - we can't, just via Google index we may pick-up some data from the content. White there has to be a way to do that.
 
-[[Image(https://i.imgur.com/Knsn6RO.jpg)]]
+![WordPress in 2010](https://i.imgur.com/Knsn6RO.jpg "WordPress in 2010")
 
-[[Image(https://i.imgur.com/3E2y1ky.jpg)]]
+![WordPress in 2018](https://i.imgur.com/3E2y1ky.jpg "WordPress in 2018")
 
 ''*NOTE: If someone has a question, what the empty white space in the middle represent there in a picture of 2018 - that is **SaaS** software - a niche websites, like Booking.com or AirBnb.com, that focuses on specific problem and provide **multi-tenancy** feature - allowing customers to create their own profile of seller and make money'' 
 
@@ -75,13 +75,13 @@ The evidences bellow are based facts and research, plus sale results on my own s
  b. Also it is great for child themes of some kind of theme.
  c. Also, for **cross-plugin** WordPress plugins - i.e. "ReCaptcha integration" plugin (if it is not done by the plugin), "SMTP mailing settings" plugins, "Google Analytics" plugin or "WPML" language plugin (while I personally think that WordPress Multisite with Network-Enabled plugin and linking by ID's is much better, more stable, and more scalable solution, plus it is free).
  d. All other bigger plugins, have no need to have filter or action hooks, if they don't want to (''a choice in favor'') - I does complicate the testing of that plugin if it has UnitTests, as you don't know if the function 5+3 will always return 8. So instead of filters-and-hooks these plugins use **extension-points** for i.e. **Captcha Provider** (i.e. ReCaptcha), **Notification method** (i.e. SMS Provider) or **Payment Method** (i.e. PayPal), where they add their payment method library's folder to **/wp-content/plugins/GreatSystem/Libraries/** folder, and then use a **transpiler class**, i.e.:
-{{{#!php
+```php
 <?php
 final class PayPalToGreatSystemTranspiler implements GreatSystemPaymentMethodInterface
 {
 <..>
 }
-}}}
+```
  e. And here the **GreatSystemPaymentMethodInterface** has all the required method and in documentation is clearly described what each method implementation does. So there is no need then to write a 10,000 pages documentation with 10,000 filter names, just make one class that is testable and suitable for TDD (Test-Driven-Development) and can be tested with PHPUnit on PHPStorm via "/wp-content/plugins/GreatPluginTests/" plugin, if that payment methods comes pre-installed or from '/wp-content/plugins/PayPalForGreatSystemTests/Init.php'.
  f. So with my, **enterprise-ready**, plugin I may hook to cross-plugin type plugin like WPML but not vice-versa. 
 
@@ -92,7 +92,7 @@ final class PayPalToGreatSystemTranspiler implements GreatSystemPaymentMethodInt
  d. But that is only one option. Besides the **WooCommmerce** there is other products, for other market needs. Especially for the companies, who don't like WooCommerce and it's ads-full interface and promotion of other WooCoomerce product / extensions in WooCommerce admin, as well as those who focus on fast and scalable solutions for medium-size to enterprise companies, and when they look a products that have a defined use-case scenario, i.e. **Hotel Booking**, without any need to configure thousands of options before launch.
  e. So for all those 'd' cases - it is **enough** that plugin just have a **text-domain** registration, would apply plugin locale filter before loading it's language file file (doesn't matter it is Unicode CLDR or POT) and register **'load_textdomain'** and **'load_plugin_textdomain'** - that is enough that the w.org would be able to fully process through GlotPress the plugin name and description for translation, which is important for multilingual w.org website - you can see that right here - the 5 lines are available for translation - https://translate.wordpress.org/projects/wp-plugins/expandable-faq/dev/lt/default . And the Source code of the mail controller is here - https://plugins.trac.wordpress.org/browser/expandable-faq/trunk/Controllers/MainController.php
  f. The excerpt with only the 'i18n' method of SolidMVC micro-framework, of MVP (extension-less boilerplate) is below:
-{{{#!php
+```php
 <?php
 final class MainController
 {
@@ -172,4 +172,4 @@ final class MainController
     }
     // <..>
 }
-}}}
+```
