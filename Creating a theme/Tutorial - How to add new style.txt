@@ -1,0 +1,91 @@
+======================================================================================
+============ Tutorial - How to add new style for Car Rental System plugin ============
+======================================================================================
+Main color schemes:
+---------------------------------------------------------------------------------------
+Crimson Red:
+Primary - #DE2E2F
+Secondary - #BA0001
+
+Steel Blue:
+Primary - #4C8AB1
+Secondary - #1A70A7
+
+Solid Black:
+Primary - #191919 (Solid Black)
+Secondary - #1EACC7 (Light Blue)
+---------------------------------------------------------------------------------------
+
+Note: This is an example, how the "Solid Black" CRS CSS stylesheet can be made from "Crimson Red" stylesheet.
+
+---------------------------------------------------------------------------------------
+
+1. Let's say our new stylesheet will be named "Solid Black" (css files will be named "global.SolidBlack.css" and "style.SolidBlack.css").
+
+2. Create a new folder in our current theme:
+"/wp-content/themes/MyTheme/ExpandableFAQ_UI/Extension1/Assets/Front/CSS/"
+
+3. Add a global style file (always loaded, accessible in all WordPress pages, even it the CRS plugin shortcode is not used there. We use this CSS mostly for body background images and paddings/margins based on WordPress post type):
+
+	3.1. Make a copy of global style CSS file '/wp-content/plugins/RentalSystem/UI/Extension1/Assets/Front/CSS/global.CrimsonRed.css'
+	as '/wp-content/themes/MyTheme/ExpandableFAQ_UI/Extension1/Assets/Front/CSS/global.SolidBlack.css'.
+
+	3.2. Let's open our new 'global.SolidBlack.css' CSS file and and update it's metadata information
+	/**
+	 * Car Rental System Global Stylesheet (Accessible in all site pages)
+	 * Style Name: Solid Black
+	 * Author: John Smith
+	 * Copyright: 2017, John Smith
+	 * License: Licensed under the AGPL license.
+	 */
+
+4. Add shortcodes style file (loaded only in these WordPress pages, where at least one of CRS shortcodes were used in page content):
+	4.1. Now make a copy of /wp-content/plugins/RentalSystem/UI/Extension1/Assets/Front/CSS/style.CrimsonRed.css
+	as '/wp-content/themes/MyTheme/ExpandableFAQ_UI/Extension1/Assets/Front/CSS/style.SolidBlack.css'.
+
+	4.2. Let's open our new CSS file and and update it's metadata information
+	/**
+	 * Car Rental System Stylesheet
+	 * Style Name: Solid Black
+	 * Author: John Smith
+	 * Copyright: 2016, John Smith
+	 * License: Licensed under the AGPL license.
+	 */
+	 
+	4.3. Now need to replace original style "Crimson Red" color code to new "Solid Black" color code
+	(this can be done with Notepad++ by running CTRL+F -> Replace -> Replace All command):
+	FROM:
+	#DE2E2F - "Crimson Red" style main color
+	TO:
+	black - "Solid Black" style main color
+	
+	FROM:
+	#DE756E - "Crimson Red" style secondary color
+	TO:
+	gray - "Solid Black" style secondary color
+	
+5. Add widgets style file (loaded only in these WordPress pages, where at least one of CRS widget were used as page widget):
+	5.1. Now make a copy of /wp-content/plugins/RentalSystem/UI/Extension1/Assets/Front/CSS/widget.CrimsonRed.css
+	as '/wp-content/themes/MyTheme/ExpandableFAQ_UI/Extension1/Assets/Front/CSS/widget.SolidBlack.css'.
+	5.2. Let's open our new CSS file and and update it's metadata information
+	/**
+	 * Car Rental System Stylesheet
+	 * Style Name: Solid Black
+	 * Author: John Smith
+	 * Copyright: 2016, John Smith
+	 * License: Licensed under the AGPL license.
+	 */
+	 
+	5.3. Now need to replace original style "Crimson Red" color code to new "Solid Black" color code
+	(this can be done with Notepad++ by running CTRL+F -> Replace -> Replace All command):
+	FROM:
+	#DE2E2F - "Crimson Red" style main color
+	TO:
+	black - "Solid Black" style main color
+	
+	FROM:
+	#DE756E - "Crimson Red" style secondary color
+	TO:
+	gray - "Solid Black" style secondary color
+	
+5. That's it. All done. How you can see you new style in WordPress Admin -> Car Rental -> Settings -> Tab: Global.

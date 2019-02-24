@@ -1,0 +1,113 @@
+AVAILABLE ADMIN SCRIPTS AND STYLES:
+// Scripts
+wp_enqueue_script('jquery');
+wp_enqueue_script('jquery-ui-core');
+wp_enqueue_script('jquery-ui-tabs');
+wp_enqueue_script('jquery-datatables');
+wp_enqueue_script('datatables-responsive');
+wp_enqueue_script('jquery-ui-datepicker', array('jquery','jquery-ui-core'));
+wp_enqueue_script('multidates-picker');
+wp_enqueue_script('jquery-validate');
+wp_enqueue_script('extension1-admin');
+
+// Styles
+wp_enqueue_style('font-awesome');
+wp_enqueue_style('extension1-admin-tabs');
+wp_enqueue_style('jquery-datatables');
+wp_enqueue_style('datatables-responsive');
+wp_enqueue_style('datepicker');
+wp_enqueue_style('jquery-ui');
+wp_enqueue_style('jquery-validate');
+wp_enqueue_style('extension1-admin');
+
+-------------------------------------------------
+AVAILABLE FRONT-END SCRIPTS AND STYLES:
+// Scripts
+wp_enqueue_script('jquery-validate');
+wp_enqueue_script('font-awesome');
+if($settings['conf_load_datepicker_from_plugin'] == 1):
+    wp_enqueue_script('jquery-ui-datepicker');
+    wp_enqueue_script('jquery-datepicker');
+endif;
+wp_enqueue_script('jquery.mousewheel'); // Optional for fancyBox
+if($settings['conf_load_fancybox_from_plugin'] == 1):
+    wp_enqueue_script('fancybox');
+endif;
+if($settings['load_slick_slider_from_plugin'] == 1):
+    wp_enqueue_script('slick-slider');
+endif;
+wp_enqueue_script('extension1-front');
+
+// Styles
+if($settings['conf_load_datepicker_from_plugin'] == 1):
+    wp_enqueue_style('datepicker');
+endif;
+if($settings['conf_load_fancybox_from_plugin'] == 1):
+    wp_enqueue_style('fancybox');
+endif;
+if($settings['conf_load_font_awesome_from_plugin'] == 1):
+    wp_enqueue_style('font-awesome');
+endif;
+if($settings['conf_load_slick_slider_from_plugin'] == 1):
+    wp_enqueue_style('slick-slider');
+    wp_enqueue_style('slick-theme');
+endif;
+wp_enqueue_style('extension1-front');
+
+-------------------------------------------------
+AVAILABLE ADMIN WIDGET SCRIPTS AND STYLES:
+// Scripts - no widget scripts available
+
+// Styles
+wp_enqueue_style('extension1-widget-admin');
+-------------------------------------------------
+AVAILABLE FRONT-END WIDGET SCRIPTS AND STYLES:
+// Scripts
+wp_enqueue_script('jquery');
+wp_enqueue_script('jquery.mousewheel'); // Optional for fancyBox
+if($settings['conf_load_fancybox_from_plugin'] == 1):
+    wp_enqueue_script('fancybox');
+endif;
+if($settings['conf_load_datepicker_from_plugin'] == 1):
+    wp_enqueue_script('jquery-ui-datepicker');
+    wp_enqueue_script('jquery-datepicker-locale');
+endif;
+if($settings['conf_load_slick_slider_from_plugin'] == 1):
+    wp_enqueue_script('slick-slider');
+endif;
+
+// Styles
+if($settings['conf_load_fancybox_from_plugin'] == 1):
+    wp_enqueue_style('fancybox');
+endif;
+if($settings['conf_load_datepicker_from_plugin'] == 1):
+    wp_enqueue_style('datepicker');
+endif;
+if($settings['conf_load_slick_slider_from_plugin'] == 1):
+    wp_enqueue_style('slick-slider');
+    wp_enqueue_style('slick-theme');
+endif;
+wp_enqueue_style('extension1-widget-front');
+--------------------------------------------------
+Never put direct url to file in templates, because it can be overriden by a parent theme, child theme, or demo path.
+So always use the following urls:
+<?=$staticURLs['PLUGIN_COMMON']['FRONT_CSS']);?>Style.css
+<?=$staticURLs['PLUGIN_COMMON']['ADMIN_CSS']);?>Style.css
+<?=$staticURLs['PLUGIN_COMMON']['FRONT_FONTS']);?>Font.ttf
+<?=$staticURLs['PLUGIN_COMMON']['ADMIN_FONTS']);?>Font.ttf
+<?=$staticURLs['PLUGIN_COMMON']['FRONT_IMAGES']);?>Image.jpg
+<?=$staticURLs['PLUGIN_COMMON']['ADMIN_IMAGES']);?>Image.jpg
+<?=$staticURLs['PLUGIN_COMMON']['FRONT_JS']);?>File.js
+<?=$staticURLs['PLUGIN_COMMON']['ADMIN_JS']);?>File.js
+<?=$staticURLs['PLUGIN_COMMON']['DEMO_GALLERY']);?>Image.jpg
+<?=$staticURLs['PLUGIN_COMMON']['GALLERY']);?>Image.jpg
+<?=$staticURLs['PLUGIN_COMMON']['LANG_URL']);?>NewScript/en_US.js
+<?=$staticURLs['PLUGIN_COMMON']['LANG_URL']);?>NewScript/<?=$lang['LOCALE_LANG'];?>.js
+
+Besides 'PLUGIN_COMMON', which means that file is located in plugin UI's common folder ('/plugins/RentalSystem/UI/Common/'), plugin supports total 6 URL roots:
+#1. 'CURRENT_EXT' - for '/themes/[YOUR_CURRENT_THEME_FOLDER_NAME]/ExpandableFAQ_UI/Extension1/' folder URL root.
+#2. 'CURRENT_COMMON' - for '/themes/[YOUR_CURRENT_THEME_FOLDER_NAME]/ExpandableFAQ_UI/Common/' folder URL root.
+#3. 'PARENT_EXT' - for '/themes/[YOUR_PARENT_THEME_FOLDER_NAME]/ExpandableFAQ_UI/Extension1/' folder URL root.
+#4. 'PARENT_COMMON' - for '/themes/[YOUR_PARENT_THEME_FOLDER_NAME]/ExpandableFAQ_UI/Common/' folder URL root.
+#5. 'PLUGIN_EXT' - for '/plugins/RentalSystem/UI/Extension1/' folder URL root.
+#6. 'PLUGIN_COMMON' - for '/plugins/RentalSystem/UI/Common/' folder URL root.

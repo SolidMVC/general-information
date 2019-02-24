@@ -1,0 +1,40 @@
+A) For very beginners:
+1. Just open your plugin folder. And copy 'UI' folder to your current theme as 'InventoryExpandableFAQ_UI' folder.
+2. Then open any template file you want to change,
+i.e. /wp-content/themes/<MY_THEME>/InventoryExpandableFAQ_UI/Common/Templates/Front/FAQsList.php,
+and edit it however you want.
+3. Save it. That's it - all done.
+
+----------------------
+B) For professionals:
+1. To maintain the maximum compatibility with the future plugin updates, you should never copy all 'UI' folder sub-folders.
+Instead of that you should copy and change only those exact folders/files which you want to override. It is recommended to start by copying 'UI/Extension1/' folder without it's 'SQL' and 'DemoGallery' sub-folders as that folder is a pretty much just a folder-structure only prepared for extension-specific overriding.
+Examples:
+
+Copy TEMPLATE file from:
+	/wp-content/plugins/RentalSystem/UI/Common/Templates/Front/FAQsList.php
+To:
+	A. If it is extension-specific template:
+	/wp-content/themes/<MY_THEME>/InventoryExpandableFAQ_UI/Extension1/Templates/Front/FAQsList.php
+	
+	B. If that template can be applied to any extension:
+	/wp-content/themes/<MY_THEME>/InventoryExpandableFAQ_UI/Common/Templates/Front/FAQsList.php
+And then edit the copied file however you want.
+
+Copy these three STYLESHEET files from:
+	/wp-content/plugins/RentalSystem/UI/Common/Assets/Front/CSS/Local/Shared/CrimsonRedColorsPartial.css
+	/wp-content/plugins/RentalSystem/UI/Common/Assets/Front/CSS/Local/Shared/LayoutPartial.css
+	/wp-content/plugins/RentalSystem/UI/Common/Assets/Front/CSS/Local/CrimsonRed.css
+To:
+	A. If they are extension-specific style-sheets:
+	/wp-content/themes/<MY_THEME>/InventoryExpandableFAQ_UI/Extension1/Assets/Front/CSS/Local/Shared/CrimsonRedColorsPartial.css
+	/wp-content/themes/<MY_THEME>/InventoryExpandableFAQ_UI/Extension1/Assets/Front/CSS/Local/Shared/LayoutPartial.css
+	/wp-content/themes/<MY_THEME>/InventoryExpandableFAQ_UI/Extension1/Assets/Front/CSS/Local/CrimsonRed.css
+	
+	B. If these style-sheets can be applied to any extension:
+	/wp-content/themes/<MY_THEME>/InventoryExpandableFAQ_UI/Common/Assets/Front/CSS/Local/Shared/CrimsonRedColorsPartial.css
+	/wp-content/themes/<MY_THEME>/InventoryExpandableFAQ_UI/Common/Assets/Front/CSS/Local/Shared/LayoutPartial.css
+	/wp-content/themes/<MY_THEME>/InventoryExpandableFAQ_UI/Common/Assets/Front/CSS/Local/CrimsonRed.css
+And then edit the copied files however you want.
+
+2. Save all your edits. That's it - all done.

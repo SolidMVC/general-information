@@ -1,0 +1,165 @@
+=================================================================================================
+==== TUTORIAL - HOW TO CORRECTLY HANDLE DEBUG, ERROR AND OKAY MESSAGES IN CAR RENTAL SYSTEM ====
+=================================================================================================
+
+1. TO SEE DEBUG OUTPUT, MAKE SURE THAT WP_DEBUG AND WP_DEBUG_DISPLAY SETTINGS ARE ENABLED IN "wp-config.php":
+---------------------------------------------------------------------------------------
+define('WP_DEBUG', true);
+define('WP_DEBUG_DISPLAY', true);
+---------------------------------------------------------------------------------------
+
+
+2. DEBUG, OKAY & ERROR MESSAGES IN EXACT MODEL ("\NativeSystem\Models\Extra\class.NewExtra.php"):
+---------------------------------------------------------------------------------------
+namespace NativeSystem\Models\Extra;
+use NativeSystem\Models\AbstractElement;
+use NativeSystem\Models\iElement;
+
+class NewExtra extends AbstractElement implements iElement
+{
+	private $debugMode = 1; // 0 - Exact element debug is disabled, 1 - enabled
+	private $depositPercentage = 10; // Deposit in percents
+	
+    public function inDebug()
+    {
+        return ($this->debugMode >= 1 ? TRUE : FALSE);
+    }
+		
+	public function add()
+	{
+		$validPrice = isset($_POST['extra_price']) ? floatval($_POST['extra_price']) : 0.00;
+		$validDeposit = $this->getDepositFromPrice($validPrice);
+		
+		if($validPrice > 0)
+		{
+			// Insert new extra to database
+			$this->okayMessages[] = "Completed: New extra has been added successfully!";
+		} else
+		{
+			$this->errorMessages[] = "Error: Price must be positive!";
+		}
+	}
+	
+	private function getDepositFromPrice($paramPrice)
+	{
+		$positivePrice = $paramPrice > 0 ? TRUE: FALSE;
+		$validPrice = $paramPrice > 0 ? floatval($paramPrice) : 0.00;
+		$deposit = $validPrice * ($this->depositPercentage / 100);
+		if($this->debugMode)
+        {
+            $debugMessage = "<br />Is positive price: ".var_export($positivePrice, TRUE);
+            $debugMessage .= "<br />Price: ".$validPrice;
+			$debugMessage .= "<br />Deposit (percentage): ".$depositPercentage;
+            $debugMessage .= "<br />Deposit (amount): ".$deposit;
+			
+			// Save debug for viewing after page redirect
+            $this->debugMessages[] = $debugMessage;
+			
+			// Direct debug output for preview in current page
+            echo $debugMessage;
+        }
+		
+		return $deposit;
+	}
+}			
+---------------------------------------------------------------------------------------
+
+
+3. DEBUG, OKAY & ERROR MESSAGES HANDLING IN EXACT MODEL CONTROLLER ("\NativeSystem\Controllers\Admin\Extra\class.AddNewExtraController.php"):
+---------------------------------------------------------------------------------------
+namespace NativeSystem\Controllers\Admin\Extras;
+use NativeSystem\Controllers\Admin\AbstractAdminController;
+use NativeSystem\Models\Extra\NewExtra;
+
+final class AddNewExtraController extends AbstractAdminController
+{
+    private function processAdd()
+    {
+		$objNewExtra = new NewExtra();
+		$objNewExtra->add();
+        $this->processDebugMessages($objNewExtra->getDebugMessages());
+		$this->processOkayMessages($objNewExtra->getOkayMessages());
+        $this->processErrorMessages($objNewExtra->getErrorMessages());
+	}
+	
+	public function getContent()
+    {
+        if(isset($_POST['add_new_extra'])) { $this->processAdd(); }
+		
+        $this->view->formAction = admin_url('admin.php?page='.$this->conf->getURLPrefix().'add-new-extra&noheader=true');
+		
+        // Get the template
+        $retContent = $this->getTemplate('Extras', 'AddNewExtra', 'Form');
+		
+        return $retContent;
+    }
+}
+---------------------------------------------------------------------------------------
+
+
+4. OUTPUTTING DEBUG, OKAY & ERROR MESSAGES IN EXTRAS MANAGER TEMPLATE (\Extensions\Extension1\Templates\Admin\Extras\template.ExtrasManagerTabs.php):
+Note: Debug messages were appended here to $okMessage or $errorMessage variables, if in wp-config.php file both WP_DEBUG and WP_DEBUG_DISPLAY is set to TRUE.
+---------------------------------------------------------------------------------------
+<div class="extension1-item-list-admin extension1-tabbed-admin extension1-tabbed-admin-wide bg-cyan">
+	<?php if ($errorMessage != ""): ?>
+		<div class="admin-info-message admin-item-info-message admin-error-message"><?php print($errorMessage); ?></div>
+	<?php elseif ($okayMessage != ""): ?>
+		<div class="admin-info-message admin-item-info-message admin-okay-message"><?php print($okayMessage); ?></div>
+	<?php endif; ?>
+</div>
+---------------------------------------------------------------------------------------
+
+
+5. NEW EXTRA EXACT TEMPLATE FILE ("\Extensions\Extension1\Templates\Admin\Extras\template.AddNewExtraForm.php"):
+---------------------------------------------------------------------------------------
+<?php
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+?>
+<h1>Add New Extra</h1>
+<hr />
+<form action="<?php print($formAction); ?>" method="post" id="extra-form">
+	<table cellpadding="5" cellspacing="2" border="0">
+		<tr>
+			<td>Extra Price:</td>
+			<td>
+				<input type="text" name="extra_price" value="" />
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="Add new extra" name="add_new_extra" /></td>
+		</tr>
+	</table>
+</form>
+---------------------------------------------------------------------------------------
+
+
+6. ADD NEW EXTRA HOOK IN ADMIN LOADER CLASS ("\NativeSystem\Controllers\Load\class.AdminLoader.php"):
+---------------------------------------------------------------------------------------
+public function addPluginAdminMenu($paramMenuPosition = 97)
+{
+	// <....>
+	add_submenu_page(
+		"{$URLPrefix}extras-manager", "Add New Extra", "Add New Extra",
+		"manage_{$extensionPrefix}own_extras", "{$URLPrefix}add-new-extra", array(&$this, "printNewExtraAdd")
+	);
+	// <...>
+}
+---------------------------------------------------------------------------------------
+
+
+7. "AddNewExtraController" HANDLER METHOD IN ADMIN LOADER CLASS ("\NativeSystem\Controllers\Load\class.AdminLoader.php"):
+---------------------------------------------------------------------------------------
+public function printNewExtraAdd()
+{
+	try
+	{
+		$objAddController = new \NativeSystem\Controllers\Admin\Extras\AddExtraController($this->conf, $this->lang);
+		print($objAddController->getContent());
+	}
+	catch (\Exception $e)
+	{
+		$this->processError(__FUNCTION__, $e->getMessage());
+	}
+}
+---------------------------------------------------------------------------------------

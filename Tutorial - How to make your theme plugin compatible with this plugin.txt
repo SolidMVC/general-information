@@ -1,0 +1,25 @@
+This is an example, how the "Steel Blue" CRS CSS stylesheet is made from "Crimson Red" stylesheet.
+
+---------------------------------------------------------------------------------------
+1. Let's say we are creating a compatibility for "Avada" Theme (FILE WILL BE NAMED: "compatibility.Avada.css").
+
+2. Create a new folder in our current theme:
+"/wp-content/themes/MyTheme/ExpandableFAQ_UI/Extension1/Assets/Front/CSS/"
+
+3. Create a new 'compatibility.Avada.css' file in that folder.
+
+4. Let's open our new CSS file and and update it's metadata information:
+/**
+ * Additional stylesheet code for compatibility with Avada
+ * Theme Name: Avada
+ * Author: John Smith
+ * Copyright: 2015, John Smith
+ * License: Themeforest Split Licence
+ */
+
+4.1. Keep in mind that "Theme name" in compatibility file has to match exact
+your theme 'style.css' file's meta description line, i.e. "Theme Name: Avada".
+
+5. Write any compatibility CSS you want to our theme.
+
+6. When you will make your theme compatible with our plugin, please let us know by writing an email to - info@nativerental.com - so that we could write that officially in our plugin description, that your theme is compatible with our plugin. And of course we will put a thank you message on the Envato store, that all the world would know who did this great job!

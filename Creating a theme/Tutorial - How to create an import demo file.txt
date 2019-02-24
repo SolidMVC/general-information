@@ -1,0 +1,90 @@
+Tutorial - How to create an import demo file
+------------------------------------------------------------------------------------------------------------------------
+1. Export SQL file via PhpMyAdmin - select all database tables with DB_PREFIX_extension1_ name at the begging.
+Note #1. Export only data.
+Note #2. Uncheck the 'Display comments' checkbox in the PhpMyAdmin Export options.
+
+2. Change exported file extension from '.sql' to '.php'.
+
+3. Run a 'Regex' [Replace All] replaces with Php Storm.
+3.1. FROM:
+\"
+TO:
+\\\"
+
+3.2. FROM:
+, 2\),\n
+TO:
+, \'[BLOG_ID]\'\),\n
+
+3.3. FROM:
+, 2\);\n\n
+TO:
+, '\[BLOG_ID\]\'\)\";\n\n
+
+3.4. FROM:
+INSERT INTO `[YOUR_DB_PREFIX]_extension1_
+TO:
+$arrExtensionInsertSQL[\'
+
+3.5. FROM:
+` (`
+TO:
+\'\] = "\(`
+
+4. Add this code to the begging of file:
+<?php
+/**
+ * Demo data
+ * @package     NS
+ * @author      John Native
+ * @copyright   John Native
+ * @License     See Licensing/README_License.txt for copyright notices and details.
+ *
+ * @ns-plugin-demo
+ * Demo UID: 2
+ * Demo Name: Enterprise Rental Demo
+ * Enabled: 1
+ */
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+
+$arrInsertSQL = array();
+$arrExtensionInsertSQL = array();
+
+5. Make Sure that all needed car demo images are in /extensions/Extension1/DemoGallery/
+5.1. Make sure that all car rows in database has 'demo_image=1', 'demo_item_image_2=1', 'demo_item_image_3=1' attributes, to load car images from demo gallery
+ */
+
+------------------------------------------------------------------------------------------------------------------------
+5. Now go back to PhpMyAdmin, and run this query:
+SELECT * FROM `wpnative2016_2_posts` WHERE `post_type` IN ('extension1_item', 'extension1_page', 'extension1_location');
+
+6. Then check the "Check All" checkbox in the end of the page and click on "Export" button.
+6.1. Select "Custom" export type.
+6.2. Select to export data only.
+6.3. Select to export without comments (uncheck the 'Display comments' checkbox.
+
+7. Run a 'Regex' [Replace All] replaces with Php Storm.
+7.1. FROM:
+INSERT INTO `wpnative2016_2_posts` \(
+TO:
+$arrInsertSQL['posts'] (
+
+7.2. FROM:
+\"
+TO:
+\\"
+
+7.3. FROM:
+);\n
+TO:
+)";\n
+
+8. Put all of this file content to the first .php file right after this line:
+$arrExtensionInsertSQL = array();
+
+9. If you see SQL_MODE, time_zone or similar SQL sentences, delete them:
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+10. That's it. All done.
