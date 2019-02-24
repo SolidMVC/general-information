@@ -49,7 +49,7 @@ two example situations, when it would be super valuable:
 
 ----
 
-== **A PROVE THAT WORDPRESS USERS CARE ABOUT CODING STANDARDS:**
+## **A PROVE THAT WORDPRESS USERS CARE ABOUT CODING STANDARDS:**
 
 The evidences bellow are based facts and research, plus sale results on my own system for pasts 4 years:
 
