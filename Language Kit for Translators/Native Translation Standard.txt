@@ -1,0 +1,19 @@
+NATIVE TRANSLATION STANDARD FOR LANGUAGE FILES:
+--------------------------------------------------
+1. Languages codes can be used anywhere - in admin, and front-end, for regular and AJAX queries, for WordPress menu items, and plugin-specific pages content, for WordPress role names, WordPress posts or even WordPress Widgets, so we don't want to stick to specific context for that language code, to avoid multiple replications and code chaos. So instead of that we are grouping all language codes only by Model Elements and nothing else. Period.
+
+2. Language file should rows must be grouped ONLY by the element in the alphabetical order. Each element can have up to 4 sections - 2 content sections (that element observer, the actual element) and 2 okay / error message sections (one for that element observer, and one for the actual element).
+
+3. The element naming should NEVER be based on things like:
+	 'ADMIN' / 'NON-ADMIN' section (no 'admin' prefixes or suffixes allowed)
+	 'AJAX' / 'NON-AJAX' language rows (no 'ajax' prefixes or suffixes allowed)
+	 'ALERT' / 'ERROR' grouping for HTML errors VS Javascript Alerts (no 'alert' prefixes or suffixes allowed - we MUST always suffix those errors with the 'ERROR' suffix, despite is that a JS alert error or HTML error)
+	 Suffixes / Prefixes like '_ROLE_NAME', 'ADMIN_MENU_' or silimar are NOT ALLOWED
+	 
+4. There CANNOT be any global okay / error messages sections. Any okay / error message should be only in that actual element okay / error messages section.
+
+5. For most common words, that are NOT describing the single element, we can have global common language rows. Those rows SHOULD not start with any of elements prefix.
+
+6. The words '_SELECT', '_SHORT' etc. goes AFTER the name, i.e. we must use 'NS_ITEM_PAGE_SELECT' and NOT the 'NS_ITEM_SELECT_PAGE', nor the 'NS_SELECT_ITEM_PAGE'. That helps us to have clear grouping and all related element language rows for same purpose action will always be next to each other.
+
+7. DO NOT translate the language file commments (those that start with '//') - they are used for identification, and should never be translated.

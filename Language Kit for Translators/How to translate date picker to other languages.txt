@@ -1,0 +1,40 @@
+=============================================================
+Question: Can I translate date picker to Spanish?
+-------------------------------------------------------------
+Answer:
+Yes, you can. For Spanish translation, or any other translation, follow these instructions:
+ 1. Go to the "Native System" plugin's "/Extensions/CarRental/Languages/DatePicker/" folder (or take a copy from this folder).
+ 
+ 2. Copy file "en_US.js" as "wp-content/languages/plugins/CarRental/DatePicker/en_US.js" to keep translation
+ file safe from being deleted during plugin update process.
+ 
+ 3. Name copied file as "es_ES.js"
+ (full list of language codes for other languages is in the file "WordPress Language codes", or it can be found here:  https://www.softaculous.com/docs/Scripts_Language_Codes or here http://wpcentral.io/internationalization/ )
+ 
+ 4. Now just open that "es_ES.js" file, and change the right words to Spanish, i.e.
+ FROM "Today":
+ currentText: 'Today',
+ TO "Este Dia" (I believe "Today" in Spanish is "Este Dia"):
+ currentText: 'Este Dia',
+ 
+ 5. Make sure you set proper day to start a week on 'firstDay' parameter.
+ '0' stands for 'Sunday', '1' stands for 'Monday', '2' stands for 'Tuesday' etc.. I.e.:
+ firstDay: 1,
+ 
+ 6. If your language text is written in 'Right to Left', set RTL mode to TRUE:
+ isRTL: true,
+ 
+ 7. Now just switch the WordPress system language to Spanish (you may need to Download WordPress Spanish package from official WordPress website, or National WordPress support website in Spain). The car rental plugin language will become Spanish automatically.
+ 
+ 8. In case if you want to keep your WordPress website language in Spanish, but WordPress administration language in English, please download addition WordPress plugins like "Backend language" ( https://wordpress.org/plugins/kau-boys-backend-localization/ , lightweight ) or WPML ( https://wpml.org/ , Heavy weight). "Backend language" plugin is included in the package - it's file named "kau-boys-backend-localization.zip"  and it's located in "/crs-optional-tools-plugins-themes/plugins/" directory)
+ 
+ 9. When you get Spanish version translated, please send it to us - info@nativerental.com - so that we could add it to official plugin's package. And of course we will put a thank you message on the Envato store, and at the beginning of the translated language file, that all the world would know who did this great job!
+ 
+ 10. Please encode language file in "UTF-8 without BOM" mode (so that we could see Spanish characters).
+ If you use Notepad++, to encode your translated language file in "UTF-8 without BOM" please do the following steps:
+ 10.1. Make a copy of your translator file.
+ 10.2. Open that copied file with Notepad++.
+ 10.3. Click on the "Encoding" dropdown menu.
+ 10.4. Select “Convert to UTF-8 without BOM” option.
+ 10.5. Save this file by pressing CTRL+S and send it to us.
+ 10.6. Thank you so much!
