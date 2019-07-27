@@ -18,7 +18,31 @@ Traits are prefixed with "tName" (http://php.net/manual/en/language.oop5.traits.
 	}
 0.2. "yURL" is correct format for variables, not "yUrl".
 
-0.3. Admin HTML lists whose HTML stays in that exact variable, has to be prefixed with $adminHTML_, and ->adminHTML_ . And functions needs to have getAdminHTML_List prefix.
+0.3. Admin HTML lists whose HTML stays in that exact variable, has to be prefixed with '$admin' / '->admin', and suffixed by 'HTML' .
+Corresponding class methods must have 'getAdminList' prefix and 'HTML' suffix', i.e.:
+<?php
+final class TaxesObserver implements ObserverInterface
+{
+	//<...>
+	
+	public function getAdminList(...)
+	{
+		//<...>
+	}
+}
+?>
+
+0.4. All methods and functions that returns HTML, and variables that holds the HTML, should have a suffix 'HTML', i.e.
+FOR MODEL: <?php $this->view->greatDropdownOptionsHTML = StaticFormatter::getNumberDropdownOptionsHTML(...); ?>
+USAGE INFOR TEMPLATE: <?=$greatDropdownOptionsHTML;?>
+
+0.5. All HTML outputs in templates and model's (for $retHTML) where we DO NOT do comparison, but only ouput, use the esc_url method, i.e.
+<?=esc_url($formAction);?>
+<?=esc_url($customerAddEditURL);?>
+
+0.6. For JS variables and Classes we should NOT use any dynamic 'prefixed' from PHP, as that makes JS re-factoring/renaming over-complicated in PHPStorm IDE.
+As well as the code would get too complicated. If we have multiple extensions, we just uses JS multi-dimensional arrays for that with extension name as array key.
+Also do not use $actJS, $popupJS or similar variables for HTML code parameters of Pop-Up JavaScript calls, HTML events ('onclick', 'onchange', etc.), or HTML URL calls to JavaScript.
 
 1. include 'file.php'; - use single ', not do not use brackets for "include" - 'include' is not a function, it's a resource request.
 

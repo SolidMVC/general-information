@@ -1,0 +1,37 @@
+#1. Licensing notice regarding `es(..)`, `at(..)`, `abh(..)`, `eh()`, `ej()`, `et()` functions:
+-----------------------------------------------------------------------------------------------
+S.O.L.I.D. MVC support abbreviation functions - `es(..)`, `at(..)`, `abh(..)`, `eh()`, `ej()`, `et()`, for possible use in templates, but they can also be used in models, if you use observer models that may be generating and returning to controller whole HTML blocks.
+
+These functions may be valuable for developers that wants to have their HTML templates (or PHP-enhanced templates) be fully based only on SolidMVC (MIT-licensed), and not WordPress (GPL-licensed), as in this case your templates would be intensively calling only the MIT-licensed SolidMVC micro-framework’s functions. Additionally, this allows you to write a shorter code for your templates, which is easier to read for your designers.
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+#2. Notice regarding the use of SolidMVC micro-framework VS plain-WordPress:
+-----------------------------------------------------------------------------------------------
+By using the S.O.L.I.D. MVC, you can be sure, that your plugin is intensively calling only the SolidMVC code (which is MIT open-sourced), and not the WordPress code (which is GPL open-sourced). Meaning that SolidMVC is like a funnel for the web apps, and SolidMVC micro-framework can have it's implementation for any Content Management System (like WordPress, PHP-Fusion, PrestaShop, etc.) or Frameworks (like Laravel). It may even be forked to work with some C# or JAVA frameworks or CMS'es.
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+#3. Clearance on why does SolidMVC does not have it's implementation for WordPress widget class:
+-----------------------------------------------------------------------------------------------
+Differently to shortcodes, or API hooks, the widgets in WordPress can be created only by using the 'extend' class feature.
+First of all this limits the plugin's ability to register dynamic widget names, as each of them has to have an 'extending class',
+and secondly, 'extending' is what is so-called 'derivative work' regarding the GPL license, which WordPress uses.
+So to avoid this collision, we do not support 'Widgets' in SolidMVC.
+Additional there is a plan in WordPress community to transform all Widgets to Guttenberg blocks, and as you may know,
+Guttenberg is written on React.js, which is MIT open-sourced. While the Guttenberg, that is pretty-much 'an extend' to React.js,
+is based on GPL-license, so unless your plugin would be extending one of Guttenberg's core functions
+(what would be so-called GPL-licensed 'derivative work'), you are not tightly coupled with GPL, and pretty much fully on React, which is MIT open-sourced.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+#4. Clearance why does SolidMVC do not register it's own filters and hooks:
+-----------------------------------------------------------------------------------------------
+Filter and hooks are called to be one of descriptive attributes on how the WordPress itself is built.
+SolidMVC, differently to WordPress, does use 'template, asset & SQL overriding' feature, that does not depend on WordPress filters and hooks.
+Only the SolidMVC core's initializer controllers calls WordPress core hooks and filters. 
+This grants the fact, that any plugin, that is written on SolidMVC micro-framework, does not use WordPress filters and hooks system at all.
