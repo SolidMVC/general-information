@@ -173,5 +173,3 @@ final class MainController
     // <..>
 }
 ```
-
-##**General notes of S.O.L.I.D. MVC coding standards for begginers**
