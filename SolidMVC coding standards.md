@@ -108,3 +108,191 @@ BCNF DATABASE STANDART NOTES:
 
 ARCHITECTURAL DECISIONS:
 1. in front-end, Font-Awesome should be always loaded by default from the plugin after install / demo import, as if we load it from the theme, after theme's update it will fail to keep up with FA version, and the images won't be loaded, and our goal is to give the best possible view from start that is easiest to start.
+
+## **General notes of S.O.L.I.D. MVC coding standards for begginers**
+
+Here are the basic S.O.L.I.D. MVC coding standards for begginers to follow  
+
+### 1. HTML:
+
+* **img Tags**  
+img tags do not have a tag like \</img>, so the correct way to actually close the tag should be like this `<img src="image.jpg" />`, but not like this `<img src="image.jpg">`
+
+* **empty Tags**  
+Another common mistakes come from empty tags like `<br />`, these tags **should not be used like** `<br>`
+
+### 2. CSS layout:
+
+* **Spacing between the selector and the opening bracket**  
+
+When writting CSS begginers usually do not leave a space after the selector when opening braces, what they do is:
+
+```css
+.class{
+	/*some code*/
+}
+```
+
+When it should be: 
+
+```css
+.class {
+	/*some code*/
+}
+```
+
+Notice the little space between the brackets and the selector
+
+
+* **Closing the brackets**  
+Another thing beginers like to do is close the brackets on the same line as a property, e.g.
+
+
+```css
+.class {
+	margin: 0;}
+```
+
+The correct way would be:
+
+```css
+.class {
+	margin: 0;
+}
+```
+
+
+* **Spacing between a property and its value**  
+A common begginers mistake is to not leave a space between a property and its value, for example `margin:0;`, when it should be `margin: 0;`
+
+* **Spaces between selectors**  
+
+Often a begginer developer will try to space out his code as much as possible for better readability, but they over do it. There should be no space seperating selectors, example:
+```css
+.class1 {
+	margin: 0;
+}
+.class2 {
+	padding: 0;
+}
+```
+
+**wrong:**
+
+```css
+.class1 {
+	margin: 0;
+}
+
+.class2 {
+	padding: 0;
+}
+```
+
+* **Multiple Selectors**  
+When you have multiple selectors a good practice is to seperate them on a new line:
+
+```css
+.slector1,
+.selector2 {
+	/*Some code*/
+}
+```
+
+**NOT:**
+
+```css
+.slector1, .selector2 {
+	/*Some code*/
+}
+```
+
+* **Section seperation**  
+
+The only things that can be seperated are differenct sections, e.g.
+
+```css
+
+/***********************************************************************************/
+/******************************** SECTION 1 **********************************/
+/***********************************************************************************/
+
+.section1-class1 {
+	/*code*/
+}
+.section1-class2 {
+	/*code*/
+}
+.section1-class3 {
+	/*code*/
+}
+
+/***********************************************************************************/
+/******************************** SECTION 2 **********************************/
+/***********************************************************************************/
+
+.section2-class1 {
+	/*code*/
+}
+.section2-class2 {
+	/*code*/
+}
+.section2-class3 {
+	/*code*/
+}
+
+/*media queries should look like this*/
+
+@media all and (max-width: 1000px) {
+	.class1 {
+		/*code*/
+	}
+	.class2 {
+		/*code*/
+	}
+	.class3 {
+		/*code*/
+	}
+}
+```
+
+### 3. PHP spacing
+
+* **Single line echoes** 
+
+Single line echos should always be closed without spaces and use the short PHP opening brackets, e.g.
+
+```php
+// What to do
+<?=esc_html($var);?>
+
+// What not to do
+
+<?php esc_html($var); ?>
+``` 
+
+* **Colon use in IF/ELSE/FOREACH/ENDIF/WHILE/ENDWHILE**  
+
+After all of these statements after a colon there should be a space and full `<?php ?>` tags should be used:
+
+```html
+<?php if(something): ?>
+	// some HTML
+<?php elseif(somethingElse): ?>
+	// some HTML
+<?php else: ?>
+	// some HTML
+<?php endif; ?>
+```
+
+**BAD:**
+
+```php
+<?php if(something):?>
+	// some HTML
+<?php elseif(somethingElse):?>
+	// some HTML
+<?php else:?>
+	// some HTML
+<?php endif;?>
+```
