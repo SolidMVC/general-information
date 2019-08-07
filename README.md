@@ -339,7 +339,7 @@ Single line echos should always be closed without spaces and use the short PHP o
 
 After all of these statements after a colon there should be a space and full `<?php ?>` tags should be used:
 
-```php
+```html
 <?php if(something): ?>
 	// some HTML
 <?php elseif(somethingElse): ?>
