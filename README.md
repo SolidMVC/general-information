@@ -327,10 +327,10 @@ The only things that can be seperated are differenct sections, e.g.
 Single line echos should always be closed without spaces and use the short PHP opening brackets, e.g.
 
 ```php
-/*What to do*/
+// What to do
 <?=esc_html($var);?>
 
-/*What not to do*/
+// What not to do
 
 <?php esc_html($var); ?>
 ``` 
@@ -341,11 +341,11 @@ After all of these statements after a colon there should be a space and full `<?
 
 ```php
 <?php if(something): ?>
-	/* some HTML */
+	<--! some HTML -->
 <?php elseif(somethingElse): ?>
-	/* some HTML */
+	<--! some HTML -->
 <?php else: ?>
-	/* some HTML */
+	<--! some HTML -->
 <?php endif; ?>
 ```
 
@@ -353,10 +353,10 @@ After all of these statements after a colon there should be a space and full `<?
 
 ```php
 <?php if(something):?>
-	/* some HTML */
+	<--! some HTML -->
 <?php elseif(somethingElse):?>
-	/* some HTML */
+	<--! some HTML -->
 <?php else:?>
-	/* some HTML */
+	<--! some HTML -->
 <?php endif;?>
 ```
