@@ -341,11 +341,11 @@ After all of these statements after a colon there should be a space and full `<?
 
 ```php
 <?php if(something): ?>
-	<--! some HTML -->
+	// some HTML
 <?php elseif(somethingElse): ?>
-	<--! some HTML -->
+	// some HTML
 <?php else: ?>
-	<--! some HTML -->
+	// some HTML
 <?php endif; ?>
 ```
 
@@ -353,10 +353,10 @@ After all of these statements after a colon there should be a space and full `<?
 
 ```php
 <?php if(something):?>
-	<--! some HTML -->
+	// some HTML
 <?php elseif(somethingElse):?>
-	<--! some HTML -->
+	// some HTML
 <?php else:?>
-	<--! some HTML -->
+	// some HTML
 <?php endif;?>
 ```
