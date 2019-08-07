@@ -15,12 +15,14 @@ Traits are prefixed with "tName" (http://php.net/manual/en/language.oop5.traits.
 //////////////////////////////////////////////////////
 
 0. Global variable and function names naming rules:
+
 0.1. If that is a term, i.e. "ZIP Code", then we use underscore after all-capitals term, i.e.:
 	public function getZIP_Code()
 	{
 		$retZIP_Code = '';
 		...
 	}
+	
 0.2. "yURL" is correct format for variables, not "yUrl".
 
 0.3. Admin HTML lists whose HTML stays in that exact variable, has to be prefixed with '$admin' / '->admin', and suffixed by 'HTML' .
