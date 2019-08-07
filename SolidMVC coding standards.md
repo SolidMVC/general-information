@@ -1,4 +1,4 @@
-NATIVE CODING STANDARD:
+S.O.L.I.D. MVC CODING STANDARD:
 -----------------------------------------------------
 From Php-Fig.org "PSR Naming Conventions":
 Abstract classes MUST be prefixed by Abstract: e.g. Psr\Foo\AbstractBar.
@@ -125,7 +125,7 @@ Another common mistakes come from empty tags like `<br />`, these tags **should 
 
 * **Spacing between the selector and the opening bracket**  
 
-When writting CSS begginers usually do not leave a space after the selector when opening braces, what they do is:
+When writing CSS begginers usually do not leave a space after the selector when opening braces, what they do is:
 
 ```css
 .class{
@@ -145,7 +145,7 @@ Notice the little space between the brackets and the selector
 
 
 * **Closing the brackets**  
-Another thing beginers like to do is close the brackets on the same line as a property, e.g.
+Another thing begginers like to do is close the brackets on the same line as a property, e.g.
 
 
 ```css
@@ -190,7 +190,7 @@ Often a begginer developer will try to space out his code as much as possible fo
 ```
 
 * **Multiple Selectors**  
-When you have multiple selectors a good practice is to seperate them on a new line:
+When you have multiple selectors a good practice is to separate them on a new line:
 
 ```css
 .slector1,
@@ -207,9 +207,9 @@ When you have multiple selectors a good practice is to seperate them on a new li
 }
 ```
 
-* **Section seperation**  
+* **Section separation**  
 
-The only things that can be seperated are differenct sections, e.g.
+The only things that can be separated are different sections, e.g.
 
 ```css
 
