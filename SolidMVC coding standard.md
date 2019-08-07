@@ -1,14 +1,15 @@
 S.O.L.I.D. MVC CODING STANDARD:
 -----------------------------------------------------
+
 From Php-Fig.org "PSR Naming Conventions":
 Abstract classes MUST be prefixed by Abstract: e.g. Psr\Foo\AbstractBar.
 PSR-1, PSR-2 and PSR-4 MUST be followed.
------------------------------------------------------
+//////////////////////////////////////////////////////
 From PHP.net:
 Interfaces are prefixed with "iName" (http://php.net/manual/en/language.oop5.interfaces.php) (in C# language it is 'IName', but in Php we want to have this for easier autoloading and separating-out files that are not classes inside,
 i.e. that autoloader will know when to load 'class.InteligentUser.php' and when 'interface.iUser.php')
 Traits are prefixed with "tName" (http://php.net/manual/en/language.oop5.traits.php)
------------------------------------------------------
+//////////////////////////////////////////////////////
 0. Global variable and function names naming rules:
 0.1. If that is a term, i.e. "ZIP Code", then we use underscore after all-capitals term, i.e.:
 	public function getZIP_Code()
