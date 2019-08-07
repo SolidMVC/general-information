@@ -191,7 +191,7 @@ Another common mistakes come from empty tags like `<br />`, these tags **should 
 
 When writting CSS begginers usually do not leave a space after the selector when opening braces, what they do is:
 
-```
+```css
 .class{
 	/*some code*/
 }
@@ -199,7 +199,7 @@ When writting CSS begginers usually do not leave a space after the selector when
 
 When it should be: 
 
-```
+```css
 .class {
 	/*some code*/
 }
@@ -212,14 +212,14 @@ Notice the little space between the brackets and the selector
 Another thing beginers like to do is close the brackets on the same line as a property, e.g.
 
 
-```
+```css
 .class {
 	margin: 0;}
 ```
 
 The correct way would be:
 
-```
+```css
 .class {
 	margin: 0;
 }
@@ -232,7 +232,7 @@ A common begginers mistake is to not leave a space between a property and its va
 * **Spaces between selectors**  
 
 Often a begginer developer will try to space out his code as much as possible for better readability, but they over do it. There should be no space seperating selectors, example:
-```
+```css
 .class1 {
 	margin: 0;
 }
@@ -243,7 +243,7 @@ Often a begginer developer will try to space out his code as much as possible fo
 
 **wrong:**
 
-```
+```css
 .class1 {
 	margin: 0;
 }
@@ -256,7 +256,7 @@ Often a begginer developer will try to space out his code as much as possible fo
 * **Multiple Selectors**  
 When you have multiple selectors a good practice is to seperate them on a new line:
 
-```
+```css
 .slector1,
 .selector2 {
 	/*Some code*/
@@ -265,7 +265,7 @@ When you have multiple selectors a good practice is to seperate them on a new li
 
 **NOT:**
 
-```
+```css
 .slector1, .selector2 {
 	/*Some code*/
 }
@@ -275,7 +275,7 @@ When you have multiple selectors a good practice is to seperate them on a new li
 
 The only things that can be seperated are differenct sections, e.g.
 
-```
+```css
 
 /***********************************************************************************/
 /******************************** SECTION 1 **********************************/
@@ -326,7 +326,7 @@ The only things that can be seperated are differenct sections, e.g.
 
 Single line echos should always be closed without spaces and use the short PHP opening brackets, e.g.
 
-```
+```php
 /*What to do*/
 <?=esc_html($var);?>
 
@@ -339,7 +339,7 @@ Single line echos should always be closed without spaces and use the short PHP o
 
 After all of these statements after a colon there should be a space and full `<?php ?>` tags should be used:
 
-```
+```php
 <?php if(something): ?>
 	/* some HTML */
 <?php elseif(somethingElse): ?>
@@ -351,7 +351,7 @@ After all of these statements after a colon there should be a space and full `<?
 
 **BAD:**
 
-```
+```php
 <?php if(something):?>
 	/* some HTML */
 <?php elseif(somethingElse):?>
