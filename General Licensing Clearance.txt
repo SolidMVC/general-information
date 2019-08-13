@@ -1,8 +1,12 @@
+=================================================================================
+========================== GENERAL LICENSING CLEARANCE ==========================
+=================================================================================
+
 #1. Licensing notice regarding `es(..)`, `at(..)`, `abh(..)`, `eh()`, `ej()`, `et()` functions:
 -----------------------------------------------------------------------------------------------
 S.O.L.I.D. MVC support abbreviation functions - `es(..)`, `at(..)`, `abh(..)`, `eh()`, `ej()`, `et()`, for possible use in templates, but they can also be used in models, if you use observer models that may be generating and returning to controller whole HTML blocks.
 
-These functions may be valuable for developers that wants to have their HTML templates (or PHP-enhanced templates) be fully based only on SolidMVC (MIT-licensed), and not WordPress (GPL-licensed), as in this case your templates would be intensively calling only the MIT-licensed SolidMVC micro-framework’s functions. Additionally, this allows you to write a shorter code for your templates, which is easier to read for your designers.
+These functions may be valuable for developers that wants to have their HTML templates (or PHP-enhanced templates) be fully based only on SolidMVC (MIT-licensed), and not WordPress (GPL-licensed), as in this case your templates would be intensively calling only the MIT-licensed SolidMVC micro-framework's functions. Additionally, this allows you to write a shorter code for your templates, which is easier to read for your designers.
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////

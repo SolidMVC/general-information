@@ -1,0 +1,94 @@
+================================================================================================================================================
+LICENSING CLEARANCE FOR MODELS, THAT ARE RUNNING ON S.O.L.I.D. MVC MICRO-FRAMEWORK IN A WORDPRESS-KERNEL ENVIRONMENT
+-------------------
+The source code of PHP files, that sits under /Models/ folder of plugin that is running on MIT-licenses SolidMVC micro-framework,
+are licensed under commercial-friendly MIT license.
+
+================================================================================================================================================
+CLEARANCE ON SO-CALLED "DERIVATIVE & NON-DERIVATIVE WORK OF WORDPRESS" FOR FILES INSIDE /MODELS/ FOLDER:
+-------------------
+Only the models of SolidMVC (PHP classes), that intensively uses WordPress core functionality that is unique to WordPress,
+and sits under /Models/ folder are counted as so-called "derivative work of WordPress",
+ has to be licensed under GPL-compatible license (i.e. MIT, AGPL, GPLv3, etc.).
+
+These, always MIT-licensed, "tight-coupled with WP core" models (PHP classes) are in the following files:
+
+/Models/Administrator/Administrator.php:                Administrator {...} - due to fact, that 'administrator' is WordPress core role
+/Models/Administrator/AdministratorRole.php:            AdministratorRole {...} - due to fact, that 'administrator' is WordPress core role
+/Models/Administrator/AdministratorsObserver.php:       AdministratorsObserver {...} - due to fact, that 'administrator' is WordPress core role
+
+/Models/Configuration/Configuration.php:                Configuration {...} - due to facts, that is based on checking WordPress core paths 'wp-content/uploads', 'wp-content/plugins/', etc.
+                                                                              as well as 'is_plugin_active_for_network(..)', 'plugin_basename(..)', 'WP_LANG_DIR',
+                                                                              and checks in WordPress core database table ('wp_options')
+
+/Models/File/StaticFile.php:                            StaticFile {...} - this is just an additional file uploading class with methods,
+                                                                           that are actively based on WordPress uploading functions.
+
+/Models/Formatting/StaticFormatting.php:                StaticFormatting {...} - this is just an additional formatting class with methods,
+                                                                                 that are actively based on WordPress formatting functions.
+
+/Models/Import/Demo.php:                                Demo {...} - due to fact, that the main file feature is reading files meta data
+                                                                     with WP-core's 'get_file_data(..)' function, as well as some variations of SolidMVC
+                                                                     (mostly - extension-based) has support for demo data import to WP-core database tables as well (i.e. 'wp_posts').
+
+/Models/Import/DemosObserver.php:                       DemosObserver {...} - due to fact, that the main file feature is reading files meta data
+                                                                              with WP-core's unique 'get_file_data(..)' function.
+
+/Models/Install/Install.php:                            Install {...} - due to existing support for data insertion to WP-core database tables as well (i.e. 'wp_posts').
+
+/Models/Language/Language.php:                          Language {...} - based on checking of WP languages path and checks needed for WPML support with 'unique to WP' functions:
+                                                                         'is_plugin_active(..)', 'do_action(..)', 'get_permalink(..)' and 'apply_filters()'.
+
+/Models/Load/AutoLoad.php:                              AutoLoad {...} - based on checking of WP plugins folder path.
+
+/Models/Routing/UI_Routing.php:                         UI_Routing {...} - due to facts, that is based on checking WordPress current and child theme paths and URLs
+                                                                           with WordPress core functions, that are unique to WordPress:
+                                                                           'get_stylesheet_directory()', 'get_template_directory()',
+                                                                           'get_stylesheet_directory_uri()' and 'get_template_directory_uri()'.
+
+/Models/Status/NetworkStatus.php:                       NetworkStatus {...} - due to fact, that is actively based on unique to WordPress 'network_admin_url(..) function.
+/Models/Status/SingleStatus.php:                        SingleStatus {...} - due to fact, that is actively based on unique to WordPress 'admin_url(..) function.
+
+/Models/Style/Style.php:                                Style {...} - due to fact, that the main class functionality is based on three 'unique to WordPress' functions:
+                                                                      'get_file_data(..)', 'wp_get_theme(..)' and 'get_template()'.
+
+/Models/Style/StylesObserver.php:                       StylesObserver {...} - due to fact, that the main class functionality is based on WP-unique 'get_file_data(..)' function.
+
+/Models/Validation/StaticValidation.php:                StaticValidation {...} - this is just an additional validation class with methods,
+                                                                                 that are actively based on WordPress validation functions.
+
+All other models and model classes may be licensed on any license author wants, as long as original MIT header is kept on the top of the file, if that is one of MIT-licensed file modifications.
+If some model is i.e. AGPL-licensed or uses commercial license, then it should remain as AGPL-licensed or remain commercially licensed respectively.
+
+================================================================================================================================================
+RULE OF GOOD FAITH:
+Despite that YOU CAN license other models and model classes on any license you want, because some models still has to be GPL-compliant,
+it is advised to have all your models licensed under GPL-compliant license (MIT, AGPL, GPLv3, etc.).
+
+================================================================================================================================================
+NOTE FOR MODELS LICENSING OF EXACT PLUGIN:
+For exact plugin licensing please check corresponding folder and license clearance file IN EXACT PLUGIN sub-folder.
+
+================================================================================================================================================
+ADDITIONAL NOTES:
+1.  In SolidMVC coding standard it is defined, that SolidMVC models should not implement WordPress widgets (that would be extending "WP_Widget" WordPress core class).
+    While, of course, nobody is stopping you from doing that, but then you would lose the licensing independence flexibility from WordPress core license, which is GPL.
+
+2.  In SolidMVC coding standard it is defined, that, despite that SolidMVC 'MainController' has a registration for .PO/.MO language files,
+    you should only use Unicode CLDR ("Key=>Value" pairs) language coding standard, that does not require your templates, library transpilers, models, views and controllers
+    to hook to WordPress core language processing functions.
+    Of course, nobody is stopping you from doing that, but then you may lose the licensing independence flexibility from WordPress core license, which is GPL.
+
+3.  In SolidMVC coding standard it is defined, that each model should have it's own independent table(-s) in database, and should not put it's data to 'wp_options' table.
+    While, of course, nobody is stopping you keeping your models data in 'wp_options' table, but then, for that exact model,
+    you would lose the licensing independence flexibility from WordPress core license, which is GPL.
+
+4.  In SolidMVC coding standard it is defined, that only SolidMVC core models may be hooking into WordPress 'filters and actions'.
+    Any non-core models should not be doing that.
+    Of course, nobody is stopping you from doing that, but then you would lose the licensing independence flexibility from WordPress core license, which is GPL.
+
+5.  In SolidMVC coding standard it is defined, that only SolidMVC core models may be registering it's WordPress filters and actions
+    with 'add_filter(..)' and 'add_action(..)' functions. Any non-core models should not be doing that.
+    Of course, nobody is stopping you from doing that, but then you would lose the licensing independence flexibility from WordPress core license, which is GPL.
+
+6.  The meta header of exact model class file, may be overriding the default /Models/ directory licensing, which in this case is MIT.

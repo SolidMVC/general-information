@@ -1,0 +1,31 @@
+================================================================================================================================================
+LICENSING CLEARANCE FOR LIBRARIES, THAT ARE RUNNING ON S.O.L.I.D. MVC MICRO-FRAMEWORK IN A WORDPRESS-KERNEL ENVIRONMENT
+-------------------
+The source code of PHP files, that sits under /Libraries/ folder of plugin that is running on MIT-licenses SolidMVC micro-framework,
+are licensed under commercial-friendly MIT license.
+
+================================================================================================================================================
+CLEARANCE ON "NON-DERIVATIVE WORK OF WORDPRESS" FOR FILES INSIDE /LIBRARIES/ FOLDER:
+
+1.  The library class files -  transpiler classes and files in sub-folders of /Libraries/ folders ARE NOT SITTING under plugin's global namespace,
+    and are loaded INDEPENDENTLY and INDIVIDUALLY by exact models, controllers, or library transpilers.
+
+2.  The transpilers are for "X library" rendering in "SolidMVC micro-framework" and is NOT derived from WordPress.
+
+3.  The "X library" is independent nor from "WordPress" nor from "SolidMVC micro-framework" and can be any collection of PHP code.
+
+All libraries may be licensed on any license author wants, as long as original MIT header is kept on the top of the file, if that is one of MIT-licensed file modifications.
+If some library file is i.e. AGPL-licensed or uses commercial license, then it should remain as AGPL-licensed or remain commercially licensed respectively.
+
+================================================================================================================================================
+NOTE FOR LIBRARY LICENSING OF EXACT PLUGIN:
+For exact plugin licensing please check corresponding folder and license clearance file IN EXACT PLUGIN sub-folder.
+
+================================================================================================================================================
+ADDITIONAL NOTES:
+1.  In SolidMVC coding standard it is defined, that, despite that SolidMVC 'MainController' has a registration for .PO/.MO language files,
+    you should only use Unicode CLDR ("Key=>Value" pairs) language coding standard, that does not require your templates, library transpilers, models, views and controllers
+    to hook to WordPress core language processing functions.
+    Of course, nobody is stopping you from doing that, but then you may lose the licensing independence flexibility from WordPress core license, which is GPL.
+
+2.  The meta header of exact library transpiler or library sub-folder, may be overriding the default /Libraries/ directory licensing, which in this case is MIT.
