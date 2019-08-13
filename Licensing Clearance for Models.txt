@@ -13,49 +13,52 @@ and sits under /Models/ folder are counted as so-called "derivative work of Word
 
 These, always MIT-licensed, "tight-coupled with WP core" models (PHP classes) are in the following files:
 
-/Models/Administrator/Administrator.php:                Administrator {...} - due to fact, that 'administrator' is WordPress core role
-/Models/Administrator/AdministratorRole.php:            AdministratorRole {...} - due to fact, that 'administrator' is WordPress core role
-/Models/Administrator/AdministratorsObserver.php:       AdministratorsObserver {...} - due to fact, that 'administrator' is WordPress core role
+/Models/Administrator/Administrator.php:            Administrator {...} - due to fact, that 'administrator' is WordPress core role.
 
-/Models/Configuration/Configuration.php:                Configuration {...} - due to facts, that is based on checking WordPress core paths 'wp-content/uploads', 'wp-content/plugins/', etc.
-                                                                              as well as 'is_plugin_active_for_network(..)', 'plugin_basename(..)', 'WP_LANG_DIR',
-                                                                              and checks in WordPress core database table ('wp_options')
+/Models/Administrator/AdministratorRole.php:        AdministratorRole {...} - due to fact, that 'administrator' is WordPress core role.
 
-/Models/File/StaticFile.php:                            StaticFile {...} - this is just an additional file uploading class with methods,
-                                                                           that are actively based on WordPress uploading functions.
+/Models/Administrator/AdministratorsObserver.php:   AdministratorsObserver {...} - due to fact, that 'administrator' is WordPress core role.
 
-/Models/Formatting/StaticFormatting.php:                StaticFormatting {...} - this is just an additional formatting class with methods,
-                                                                                 that are actively based on WordPress formatting functions.
+/Models/Configuration/Configuration.php:            Configuration {...} - due to facts, that is based on checking WordPress core paths 'wp-content/uploads', 'wp-content/plugins/', etc.
+                                                                          as well as 'is_plugin_active_for_network(..)', 'plugin_basename(..)', 'WP_LANG_DIR',
+                                                                          and checks in WordPress core database table ('wp_options')
 
-/Models/Import/Demo.php:                                Demo {...} - due to fact, that the main file feature is reading files meta data
-                                                                     with WP-core's 'get_file_data(..)' function, as well as some variations of SolidMVC
-                                                                     (mostly - extension-based) has support for demo data import to WP-core database tables as well (i.e. 'wp_posts').
+/Models/File/StaticFile.php:                        StaticFile {...} - this is just an additional file uploading class with methods,
+                                                                       that are actively based on WordPress uploading functions.
 
-/Models/Import/DemosObserver.php:                       DemosObserver {...} - due to fact, that the main file feature is reading files meta data
-                                                                              with WP-core's unique 'get_file_data(..)' function.
+/Models/Formatting/StaticFormatting.php:            StaticFormatting {...} - this is just an additional formatting class with methods,
+                                                                             that are actively based on WordPress formatting functions.
 
-/Models/Install/Install.php:                            Install {...} - due to existing support for data insertion to WP-core database tables as well (i.e. 'wp_posts').
+/Models/Import/Demo.php:                            Demo {...} - due to fact, that the main file feature is reading files meta data
+                                                                 with WP-core's 'get_file_data(..)' function, as well as some variations of SolidMVC
+                                                                 (mostly - extension-based) has support for demo data import to WP-core database tables as well (i.e. 'wp_posts').
 
-/Models/Language/Language.php:                          Language {...} - based on checking of WP languages path and checks needed for WPML support with 'unique to WP' functions:
-                                                                         'is_plugin_active(..)', 'do_action(..)', 'get_permalink(..)' and 'apply_filters()'.
+/Models/Import/DemosObserver.php:                   DemosObserver {...} - due to fact, that the main file feature is reading files meta data
+                                                                          with WP-core's unique 'get_file_data(..)' function.
 
-/Models/Load/AutoLoad.php:                              AutoLoad {...} - based on checking of WP plugins folder path.
+/Models/Install/Install.php:                        Install {...} - due to existing support for data insertion to WP-core database tables as well (i.e. 'wp_posts').
 
-/Models/Routing/UI_Routing.php:                         UI_Routing {...} - due to facts, that is based on checking WordPress current and child theme paths and URLs
-                                                                           with WordPress core functions, that are unique to WordPress:
-                                                                           'get_stylesheet_directory()', 'get_template_directory()',
-                                                                           'get_stylesheet_directory_uri()' and 'get_template_directory_uri()'.
+/Models/Language/Language.php:                      Language {...} - based on checking of WP languages path and checks needed for WPML support with 'unique to WP' functions:
+                                                                     'is_plugin_active(..)', 'do_action(..)', 'get_permalink(..)' and 'apply_filters()'.
 
-/Models/Status/NetworkStatus.php:                       NetworkStatus {...} - due to fact, that is actively based on unique to WordPress 'network_admin_url(..) function.
-/Models/Status/SingleStatus.php:                        SingleStatus {...} - due to fact, that is actively based on unique to WordPress 'admin_url(..) function.
+/Models/Load/AutoLoad.php:                          AutoLoad {...} - based on checking of WP plugins folder path.
 
-/Models/Style/Style.php:                                Style {...} - due to fact, that the main class functionality is based on three 'unique to WordPress' functions:
-                                                                      'get_file_data(..)', 'wp_get_theme(..)' and 'get_template()'.
+/Models/Routing/UI_Routing.php:                     UI_Routing {...} - due to facts, that is based on checking WordPress current and child theme paths and URLs
+                                                                       with WordPress core functions, that are unique to WordPress:
+                                                                       'get_stylesheet_directory()', 'get_template_directory()',
+                                                                       'get_stylesheet_directory_uri()' and 'get_template_directory_uri()'.
 
-/Models/Style/StylesObserver.php:                       StylesObserver {...} - due to fact, that the main class functionality is based on WP-unique 'get_file_data(..)' function.
+/Models/Status/NetworkStatus.php:                   NetworkStatus {...} - due to fact, that is actively based on unique to WordPress 'network_admin_url(..) function.
 
-/Models/Validation/StaticValidation.php:                StaticValidation {...} - this is just an additional validation class with methods,
-                                                                                 that are actively based on WordPress validation functions.
+/Models/Status/SingleStatus.php:                    SingleStatus {...} - due to fact, that is actively based on unique to WordPress 'admin_url(..) function.
+
+/Models/Style/Style.php:                            Style {...} - due to fact, that the main class functionality is based on three 'unique to WordPress' functions:
+                                                                  'get_file_data(..)', 'wp_get_theme(..)' and 'get_template()'.
+
+/Models/Style/StylesObserver.php:                   StylesObserver {...} - due to fact, that the main class functionality is based on WP-unique 'get_file_data(..)' function.
+
+/Models/Validation/StaticValidation.php:            StaticValidation {...} - this is just an additional validation class with methods,
+                                                                             that are actively based on WordPress validation functions.
 
 All other models and model classes may be licensed on any license author wants, as long as original MIT header is kept on the top of the file, if that is one of MIT-licensed file modifications.
 If some model is i.e. AGPL-licensed or uses commercial license, then it should remain as AGPL-licensed or remain commercially licensed respectively.

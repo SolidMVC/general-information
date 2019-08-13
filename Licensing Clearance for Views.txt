@@ -19,8 +19,8 @@ If some view is i.e. AGPL-licensed or uses commercial license, then it should re
 
 ================================================================================================================================================
 RULE OF GOOD FAITH:
-Despite that YOU CAN license all views and view classes on any license you want, it is advised that you keep your views licensed on MIT license,
-as same as SolidMVC default does.
+Despite that YOU CAN license all views and view classes on any license you want, it is advised that you keep your own views licensed
+on GPL-compliant license (MIT, AGPL, GPLv3 or similar), as same as SolidMVC default does.
 
 ================================================================================================================================================
 NOTE FOR VIEWS LICENSING OF EXACT PLUGIN:

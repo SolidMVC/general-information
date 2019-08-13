@@ -35,7 +35,7 @@ is based on GPL-license, so unless your plugin would be extending one of Guttenb
 
 #4. Clearance why does SolidMVC do not register it's own filters and hooks:
 -----------------------------------------------------------------------------------------------
-Filter and hooks are called to be one of descriptive attributes on how the WordPress itself is built.
+Action and filter hooks are called to be one of descriptive attributes on how the WordPress itself is built.
 SolidMVC, differently to WordPress, does use 'template, asset & SQL overriding' feature, that does not depend on WordPress filters and hooks.
-Only the SolidMVC core's initializer controllers calls WordPress core hooks and filters. 
+Only the SolidMVC core's initializer controllers calls WordPress core action and filter hooks. 
 This grants the fact, that any plugin, that is written on SolidMVC micro-framework, does not use WordPress filters and hooks system at all.

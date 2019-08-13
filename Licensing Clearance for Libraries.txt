@@ -7,7 +7,7 @@ are licensed under commercial-friendly MIT license.
 ================================================================================================================================================
 CLEARANCE ON "NON-DERIVATIVE WORK OF WORDPRESS" FOR FILES INSIDE /LIBRARIES/ FOLDER:
 
-1.  The library class files -  transpiler classes and files in sub-folders of /Libraries/ folders ARE NOT SITTING under plugin's global namespace,
+1.  The library class files -  transpiler classes and files in sub-folders of /Libraries/ folders ARE NOT under plugin's global namespace,
     and are loaded INDEPENDENTLY and INDIVIDUALLY by exact models, controllers, or library transpilers.
 
 2.  The transpilers are for "X library" rendering in "SolidMVC micro-framework" and is NOT derived from WordPress.
