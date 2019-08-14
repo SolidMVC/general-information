@@ -2,7 +2,13 @@
 LICENSING CLEARANCE FOR VIEWS, THAT ARE RUNNING ON S.O.L.I.D. MVC MICRO-FRAMEWORK IN A WORDPRESS-KERNEL ENVIRONMENT
 -------------------
 The source code of PHP files, that sits under /Views/ folder of plugin that is running on MIT-licenses SolidMVC micro-framework,
-are licensed under commercial-friendly MIT license.
+are licensed under commercial-friendly MIT license by default.
+                                                  
+1. 	If needed, the default MIT license can be overridden by one of copyleft licenses (i.e. AGPL) in open-source projects:
+    https://en.wikipedia.org/wiki/Copyleft , as long as original authors credential are left in the file header, if that is a file modification.
+
+2. 	If needed, the default MIT license can be overridden by one of copyright licenses (i.e. CCL) in commercial projects:
+    https://en.wikipedia.org/wiki/Copyright , as long as original authors credential are left in the file header, if that is a file modification.
 
 ================================================================================================================================================
 CLEARANCE ON "NON-DERIVATIVE WORK OF WORDPRESS" FOR FILES INSIDE /VIEWS/ FOLDER:
@@ -19,7 +25,7 @@ If some view is i.e. AGPL-licensed or uses commercial license, then it should re
 
 ================================================================================================================================================
 RULE OF GOOD FAITH:
-Despite that YOU CAN license all views and view classes on any license you want, it is advised that you keep your own views licensed
+Despite that YOU CAN license all views and view classes on any license YOU want, it is advised that you keep your own views licensed
 on GPL-compliant license (MIT, AGPL, GPLv3 or similar), as same as SolidMVC default does.
 
 ================================================================================================================================================
