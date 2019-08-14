@@ -57,7 +57,7 @@ These, always MIT-licensed, "tight-coupled with WP core" models (PHP classes) ar
 
 /Models/Style/StylesObserver.php:                   StylesObserver {...} - due to fact, that the main class functionality is based on WP-unique 'get_file_data(..)' function.
 
-/Models/Validation/StaticValidation.php:            StaticValidation {...} - this is just an additional validation class with methods,
+/Models/Validation/StaticValidator.php:            	StaticValidator {...} - this is just an additional validation class with methods,
                                                                              that are actively based on WordPress validation functions.
 
 All other models and model classes may be licensed on any license author wants, as long as original MIT header is kept on the top of the file, if that is one of MIT-licensed file modifications.
