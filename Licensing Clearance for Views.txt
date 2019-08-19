@@ -1,7 +1,7 @@
 ================================================================================================================================================
 LICENSING CLEARANCE FOR VIEWS, THAT ARE RUNNING ON S.O.L.I.D. MVC MICRO-FRAMEWORK IN A WORDPRESS-KERNEL ENVIRONMENT
 -------------------
-The source code of PHP files, that sits under /Views/ folder of plugin that is running on MIT-licenses SolidMVC micro-framework,
+The source code of PHP files, that sits under /Views/ folder of plugin that is running on MIT-licensed SolidMVC micro-framework,
 are licensed under commercial-friendly MIT license by default.
                                                   
 1. 	If needed, the default MIT license can be overridden by one of copyleft licenses (i.e. AGPL) in open-source projects:

@@ -1,10 +1,18 @@
 ====================================================================================================================
-LICENSING CLEARANCE FOR PHOTO, AUDIO & VIDEO FILES, THAT ARE USED IN PLUGINS, RUNNING THE S.O.L.I.D. MVC MICRO-FRAMEWORK IN A WORDPRESS-KERNEL ENVIRONMENT
+EXPLICIT CLEARANCE FOR PHOTO, AUDIO & VIDEO FILES, THAT ARE USED IN PLUGINS,
+RUNNING THE S.O.L.I.D. MVC MICRO-FRAMEWORK IN A WORDPRESS-KERNEL ENVIRONMENT
 -------------------
-Plugins running the SolidMVC micro-framework, and themes, that override their UI for their live demos uses both paid and free stock images and videos from a variety of sources. Below is a list of each resource along with the word "PAID" or "FREE". These images and videos are not included with your purchase, and you are required to buy a license for any "PAID" image or video if you wish to use them on your site. However, there are a lot of free resources you can find below, any resource marked with FREE is one of them.  These resources offer amazing images and the artist share their work across the web to help inspire and build something great. Always make sure you read the details of each resource to fully understand the license it comes with.
--------------------
-All photo, audio and video files, that sits under /UI/ folder of plugin that is running on MIT-licenses SolidMVC micro-framework,
-are licensed under commercial-friendly MIT license by default.
+Plugins running the SolidMVC micro-framework, and themes, that override their UI for their live demos uses both paid
+and free stock images and videos from a variety of sources.
+Each plugin, or a theme overriding plugin's UI has a list of each resource along with the word "PAID" or "FREE".
+The licenses of images and videos are not included with your download / demo import, and you are required to buy a license
+for any "PAID" image or video if you wish to use them on your site. However, there are a lot of free resources you can find
+in a list below, any resource marked with FREE is one of them.
+These resources offer amazing images and the artist share their work across the web to help inspire and build something great.
+Always make sure you read the details of each resource to fully understand the license it comes with.
+
+By default - all photo, audio and video files, that sits under /UI/ folder of plugin that is running on MIT-licensed SolidMVC micro-framework,
+are licensed under commercial-friendly MIT license.
                                                   
 1. 	If needed, the default MIT license can be overridden by one of copyleft licenses (i.e. AGPL) in open-source projects:
     https://en.wikipedia.org/wiki/Copyleft , as long as original authors credential are left in the file header, if that is a file modification.
@@ -13,9 +21,9 @@ are licensed under commercial-friendly MIT license by default.
     https://en.wikipedia.org/wiki/Copyright , as long as original authors credential are left in the file header, if that is a file modification.
 
 ====================================================================================================================
-PHOTO, AUDIO & VIDEO RESOURCE LIST:
+PHOTO, AUDIO & VIDEO RESOURCE LIST TO LOOK FOR PHOTO, VIDEO OR AUDIO FILES:
 
-Stock Photos:
+Stock photo resources to look at:
 -------------------
 http://www.shutterstock.com - PAID
 http://photodune.net - PAID
@@ -32,13 +40,13 @@ https://stocksnap.io - FREE
 http://www.splitshire.com - FREE
 http://streetwill.co - FREE
 
-Stock Videos:
+Stock videos resources to look at:
 -------------------
 http://www.shutterstock.com - PAID
 http://videohive.net - PAID
 http://www.coverr.co - FREE
 
-Graphics & Mockups:
+Graphic & mockup resources to look at:
 -------------------
 http://www.pixeden.com - FREE & PAID
 https://graphicriver.net - PAID

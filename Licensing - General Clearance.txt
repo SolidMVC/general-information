@@ -18,30 +18,28 @@ By using the S.O.L.I.D. MVC, you can be sure, that your plugin is intensively ca
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-#3. Clearance on why does SolidMVC does not have it's implementation for WordPress widget class:
------------------------------------------------------------------------------------------------
-Differently to shortcodes, or API hooks, the widgets in WordPress can be created only by using the 'extend' class feature.
-First of all this limits the plugin's ability to register dynamic widget names, as each of them has to have an 'extending class',
-and secondly, 'extending' is what is so-called 'derivative work' regarding the GPL license, which WordPress uses.
-So to avoid this collision, we do not support 'Widgets' in SolidMVC.
-Additional there is a plan in WordPress community to transform all Widgets to Guttenberg blocks, and as you may know,
-Guttenberg is written on React.js, which is MIT open-sourced. While the Guttenberg, that is pretty-much 'an extend' to React.js,
-is based on GPL-license, so unless your plugin would be extending one of Guttenberg's core functions
-(what would be so-called GPL-licensed 'derivative work'), you are not tightly coupled with GPL, and pretty much fully on React, which is MIT open-sourced.
+---------------------------------------------------------------------------------
 
+General clearance on parts that are not invented by WordPress or is not "unique to WordPress":
 
-////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////
+1. Data validation, file uploading, data sanitization, output escaping, output buffering.
 
-#4. Clearance why does SolidMVC do not register it's own filters and hooks:
------------------------------------------------------------------------------------------------
-Action and filter hooks are called to be one of descriptive attributes on how the WordPress itself is built.
-SolidMVC, differently to WordPress, does use 'template, asset & SQL overriding' feature, that does not depend on WordPress filters and hooks.
-Only the SolidMVC core's initializer controllers calls WordPress core action and filter hooks. 
-This grants the fact, that any plugin, that is written on SolidMVC micro-framework, does not use WordPress filters and hooks system at all.
+2. HTML5 META headers (i.e. meta header or meta description, meta keywords).
 
-////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////
+3. HTML5 accessibility parameters for disabled people
+( https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML )
+
+4. React (MIT), jQuery (MIT) and it's libraries,
+
+5. Ajax
+( https://www.w3schools.com/xml/ajax_intro.asp )
+
+6. REST API (i.e. usage of POST, PUT, GET, DELETE, PATCH, HEAD and other commands).
+
+So all above features in PHP and web engineering world can be freely used by anyone without any restrictions. While i.e. the the Ajax media uploader UI and uploading procedure, if WordPress media script are used, are unique to WordPress. For that reason S.O.L.I.D. MVC uses only basic file uploading feature by PHP and recommends for all plugin developers on SolidMVC to use the general file uploading procedure and use WordPress scripts only for i.e. image thumbnail generation and just upload these files to /wp-content/uploads/ folder.
+This way you will not loose the licensing flexibility.
+
+For example - the RESTful API was developed by Roy Fielding in his 2000 PhD dissertation "Architectural Styles and the Design of Network-based Software Architectures" at UC Irvine. He developed the REST architectural style in parallel with HTTP 1.1 of 1996–1999, based on the existing design of HTTP 1.0 of 1996.
 
 ---------------------------------------------------------------------------------
 
@@ -132,6 +130,33 @@ are so-called "derivative work of WordPress", and are always MIT-licensed:
 
     17) /Models/Validation/StaticValidator.php:             StaticValidator {...} - this is just an additional validation class with methods,
                                                                                     that are actively based on WordPress validation functions.
+
+-----------------------------------------------------------------------------------------------
+
+General clearance on why does SolidMVC does not have it's implementation for WordPress widget class:
+
+Differently to shortcodes, or API hooks, the widgets in WordPress can be created only by using the 'extend' class feature.
+First of all this limits the plugin's ability to register dynamic widget names, as each of them has to have an 'extending class',
+and secondly, 'extending' is what is so-called 'derivative work' regarding the GPL license, which WordPress uses.
+So to avoid this collision, we do not support 'Widgets' in SolidMVC.
+Additional there is a plan in WordPress community to transform all Widgets to Gutenberg blocks, and as you may know,
+Gutenberg is written on React.js, which is MIT open-sourced. While the Gutenberg, that is pretty-much 'an extend' to React.js,
+is based on GPL-license, so unless your plugin would be extending one of Gutenberg's core functions
+(what would be so-called GPL-licensed 'derivative work'), you are not tightly coupled with GPL, and pretty much fully on React, which is MIT open-sourced.
+
+Of course, nobody restricts you from implementing usage of these Widgets and using them in your plugin and themes, but then you will loose your licensing flexibility.
+
+-----------------------------------------------------------------------------------------------
+
+General clearance on why does plugins, running SolidMVC should not register it's own unique filters and unique hooks:
+
+Action and filter hooks are called to be one of descriptive attributes on how the WordPress itself is built, so the plugins written
+on SolidMVC micro-framework, should avoid registering their own unique filters and hooks for other plugins and themes to hook in to them.
+SolidMVC, differently to WordPress, does use 'template, asset & SQL overriding' feature, that does not depend on WordPress filters and hooks.
+Only the SolidMVC core's initializer controllers calls WordPress core action and filter hooks. 
+This grants the fact, that any plugin, that is written on SolidMVC micro-framework, does not use WordPress filters and hooks system at all.
+
+Of course, nobody restricts you from creating and using these unique hooks, but then you will loose your licensing flexibility.
 
 -----------------------------------------------------------------------------------------------
 
