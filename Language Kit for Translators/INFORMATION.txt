@@ -7,23 +7,45 @@ as they will be lost during plugin updates. Instead, you want store your transla
 a) If plugin is extensions-based:
     1. Your plugin's core language files at:
     /wp-content/languages/<PLUGIN_FOLDER_NAME>/core-<LOCALE>.php
-    (e.g. /wp-content/languages/ForMunicipalities/core-en_US.php, when pre-packaged plugin core language files are located at
-       at /wp-content/plugins/InternetVoting/Languages/), to keep them safe from loss during updates.
+    (e.g. /wp-content/languages/InternetVoting/core-en_US.php, when pre-packaged plugin core language files are located at
+       at /wp-content/plugins/InternetVoting/Languages/
+    ), to keep them safe from loss during updates.
+
     2. Your plugin's extensions language files at:
-    /wp-content/languages/<EXT_FOLDER_NAME>/<LOCALE>.php
-    (e.g. /wp-content/languages/ForMunicipalities/en_US.php, when pre-packaged plugin extension language files are located at
-       at /wp-content/plugins/InternetVoting/Languages/ForMunicipalities/), to keep them safe from loss during updates.
+    /wp-content/languages/<PLUGIN_FOLDER_NAME>/<EXT_FOLDER_NAME>/<LOCALE>.php &
+    /wp-content/languages/<PLUGIN_FOLDER_NAME>/Common/<LOCALE>.php
+    (e.g. /wp-content/languages/InternetVoting/ForMunicipalities/en_US.php, when pre-packaged plugin extension language files are located at
+       at /wp-content/plugins/InternetVoting/Languages/ForMunicipalities/ &
+          /wp-content/plugins/InternetVoting/Languages/Common/
+    ), to keep them safe from loss during updates.
+
+    3. (If .PO/.MO files used) - your plugin's '.mo' language file would be located at:
+    /wp-content/languages/<PLUGIN_FOLDER_NAME>/<EXT_FOLDER_NAME>/<LOCALE>.mo
+    (e.g. /wp-content/languages/InternetVoting/ForMunicipalities/en_US.mo, when pre-packaged plugin '.mo' language files are located at
+       at /wp-content/plugins/Polls/Languages/ForMunicipalities/
+    ), to keep them safe from loss during updates.
+    NOTE: For .PO/.MO files there is one file for all language parts - core & extension (common text and unique text).
 
 b) If plugin is NOT using extensions feature:
     1. Your plugin's core language files at:
-    /wp-content/languages/<PLUGIN_NAME>/core-<LOCALE>.php
+    /wp-content/languages/<PLUGIN_FOLDER_NAME>/core-<LOCALE>.php
     (e.g. /wp-content/languages/Polls/core-en_US.php, when pre-packaged plugin language files are located at
-       at /wp-content/plugins/Polls/Languages/), to keep them safe from loss during updates.
+       at /wp-content/plugins/Polls/Languages/
+    ), to keep them safe from loss during updates.
 
     2. Your plugin's main language files at:
-    /wp-content/languages/<PLUGIN_NAME>/<LOCALE>.php
+    /wp-content/languages/<PLUGIN_FOLDER_NAME>/<LOCALE>.php
     (e.g. /wp-content/languages/Polls/en_US.php, when pre-packaged plugin language files are located at
-       at /wp-content/plugins/Polls/Languages/), to keep them safe from loss during updates.
+       at /wp-content/plugins/Polls/Languages/
+    ), to keep them safe from loss during updates.
+
+    3. (If .PO/.MO files used) - your plugin's '.mo' language file would be located at:
+    /wp-content/languages/<PLUGIN_FOLDER_NAME>/<LOCALE>.mo
+    (e.g. /wp-content/languages/Polls/en_US.mo, when pre-packaged plugin '.mo' language files are located at
+        at /wp-content/plugins/Polls/Languages/
+    ), to keep them safe from loss during updates.
+    NOTE: For .PO/.MO files there is one file for all language parts - core & plugin.
+
 
 ========================================================================================================================
 
