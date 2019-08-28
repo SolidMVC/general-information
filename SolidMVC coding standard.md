@@ -88,20 +88,30 @@ unless all three - WordPress WP_DEBUG = TRUE, WordPress WP_DEBUG_DISPLAY = TRUE 
 i.e. try to avoid "$title = $this->lang->getPrint(..);". The pure text calls should happen in models and templates.
 Having that in controller is a bad idea, as that complicates system flexibility.
 
-11. Language file coding standards:
-11.1. Languages codes can be used anywhere - in admin, and front-end, for regular and AJAX queries, for WordPress menu items, and plugin-specific pages content, for WordPress role names, WordPress posts or even WordPress Widgets, so we don't want to stick to specific context for that language code, to avoid multiple replications and code chaos. So instead of that we are grouping all language codes only by Model Elements and nothing else. Period.
-11.2. Language file should rows must be grouped ONLY by the element in the alphabetical order. Each element can have up to 4 sections - 2 content sections (that element observer, the actual element) and 2 okay / error message sections (one for that element observer, and one for the actual element).
-11.3. The element naming should NEVER be based on things like:
+**LANGUAGE FILE CODING STANDARD:**
+1. Languages codes can be used anywhere - in admin, and front-end, for regular and AJAX queries, for WordPress menu items, and plugin-specific pages content, for WordPress role names, WordPress posts or even WordPress Widgets, so we don't want to stick to specific context for that language code, to avoid multiple replications and code chaos. So instead of that we are grouping all language codes only by Model Elements and nothing else. Period.
+2. Language file should rows must be grouped ONLY by the element in the alphabetical order. Each element can have up to 4 sections - 2 content sections (that element observer, the actual element) and 2 okay / error message sections (one for that element observer, and one for the actual element).
+3. The element naming should NEVER be based on things like:
 	 'ADMIN' / 'NON-ADMIN' section (no 'admin' prefixes or suffixes allowed)
 	 'AJAX' / 'NON-AJAX' language rows (no 'ajax' prefixes or suffixes allowed)
 	 'ALERT' / 'ERROR' grouping for HTML errors VS Javascript Alerts (no 'alert' prefixes or suffixes allowed - we MUST always suffix those errors with the 'ERROR' suffix, despite is that a JS alert error or HTML error)
-	 Suffixes / Prefixes like '_ROLE_NAME', 'ADMIN_MENU_' or silimar are NOT ALLOWED
-11.4. There CANNOT be any global okay / error messages sections. Any okay / error message should be only in that actual element okay / error messages section.
-11.5. For most common words, that are NOT describing the single element, we can have global common language rows. Those rows SHOULD not start with any of elements prefix.
-11.6. The words '_SELECT', '_SHORT' etc. goes AFTER the name, i.e. we must use 'NS_ITEM_PAGE_SELECT' and NOT the 'NS_ITEM_SELECT_PAGE', nor the 'NS_SELECT_ITEM_PAGE'. That helps us to have clear grouping and all related element language rows for same purpose action will always be next to each other.
-11.7. DO NOT translate the language file commments (those that start with '//') - they are used for identification, and should never be translated.
+	 Suffixes / Prefixes like '_ROLE_NAME', 'ADMIN_MENU_' or similar are NOT ALLOWED
+4. There CANNOT be any global okay / error messages sections. Any okay / error message should be only in that actual element okay / error messages section.
+5. For most common words, that are NOT describing the single element, we can have global common language rows. Those rows SHOULD not start with any of elements prefix.
+6. The words '_SELECT', '_SHORT' etc. goes AFTER the name, i.e. we must use 'LANG_ITEM_PAGE_SELECT_TEXT' and NOT the 'LANG_ITEM_SELECT_PAGE_TEXT', nor the 'LANG_SELECT_ITEM_PAGE_TEXT'. That helps us to have clear grouping and all related element language rows for same purpose action will always be next to each other.
+7. DO NOT translate the language file comments (those that start with '//') - they are used for identification, and should never be translated.
 
-MVC:
+**CSS STANDARD RULES:**
+1. We should avoid using '-block' for HTML element scope. We should use '-wrap' instead, and '-wrapper' for the root div. This is due to fact, that in some plugins we do have 'item model blocking' and similar features, and that would make the class class name ambiguous.
+2. For strong element selection DO NOT use `.class[name="FIELD_NAME"]` selectors, as the field name often matches database column name and may be changed. So our CSS should NOT depend of database field names, so we should add additional 'class' to that HTML element, and use it:
+
+	WRONG:
+	```.some-plugin-wrapper .search-field .search-field-body input[name="pickup_date"]```
+
+	OK:
+	```.some-plugin-wrapper .search-field .search-field-body input.pickup-date```
+
+**MVC STANDARD RULES:**
 For Model (MVC)
 1. Error messages always are set in models, not controllers. In controllers we just pull these messages, aggregate them, and send them to view. Try to avoid having okay/error messages set in model observers - in that place rather choose to put a message into controller directly.
 2. For model's save() method via $params we should submit only the values for database table columns, and do a clean-up / sanitization in the method. We should not check in the method inside the existance of related other element id (that should be done in the controller), nor we should check access rights, i.e. isManager / canEdit - that also should be done in the controller, while the canEdit() method itself should be defined in the model. We also should not pass to the model's save() method the date, time and date-format values separately, if that is not saved in database table, and we should pass only the 'timestamp' value instead of the previous 3 columns.
@@ -110,15 +120,15 @@ For Model (MVC)
 3. We should never check for blog_id or ext_code in the model itself, unless that is a must (i.e. for observer to list data for current blog and extension, or to attach related output in desired language by i.e. item_sku). The only unique identifier there is should be that database table PRIMARY_KEY (id). And it is recommended in all these cases to pass that data via param.
 4. There should be no 'public function getTranslatedDropdownOptionsByPartnerId($paramPartnerId = -1, ...) methods in classes - partner id (or id's array) should always go as a first parameter in main drop-down method, i.e. public function getTranslatedDropdownOptions($paramPartnerId = -1, ...)
 
-BCNF DATABASE STANDART NOTES:
-1. Even if we can theoretically fit additional fiels of X table into separate table as rows, WE DON'T DO that, unless that is i.e. "attribute" which values can be defined and used multiple times and it is can have more than 20 fields of that type (i.e. attributes). So that's wy in customers or orders tables we have so many columns, but that allows us to keep the database much more easier to read and understand even for beginner developers.
+**BCNF DATABASE STANDARD NOTES:**
+1. Even if we can theoretically fit additional fields of X table into separate table as rows, WE DON'T DO that, unless that is i.e. "attribute" which values can be defined and used multiple times and it is can have more than 20 fields of that type (i.e. attributes). So that's wy in customers or orders tables we have so many columns, but that allows us to keep the database much more easier to read and understand even for beginner developers.
 
-ARCHITECTURAL DECISIONS:
+**ARCHITECTURAL DECISIONS:**
 1. in front-end, Font-Awesome should be always loaded by default from the plugin after install / demo import, as if we load it from the theme, after theme's update it will fail to keep up with FA version, and the images won't be loaded, and our goal is to give the best possible view from start that is easiest to start.
 
-## **General notes of S.O.L.I.D. MVC coding standards for begginers**
+## **General notes of S.O.L.I.D. MVC coding standards for beginners**
 
-Here are the basic S.O.L.I.D. MVC coding standards for begginers to follow  
+Here are the basic S.O.L.I.D. MVC coding standards for beginners to follow  
 
 ### 1. HTML:
 
@@ -132,7 +142,7 @@ Another common mistakes come from empty tags like `<br />`, these tags **should 
 
 * **Spacing between the selector and the opening bracket**  
 
-When writing CSS begginers usually do not leave a space after the selector when opening braces, what they do is:
+When writing CSS beginners usually do not leave a space after the selector when opening braces, what they do is:
 
 ```css
 .class{
@@ -152,7 +162,7 @@ Notice the little space between the brackets and the selector
 
 
 * **Closing the brackets**  
-Another thing begginers like to do is close the brackets on the same line as a property, e.g.
+Another thing beginners like to do is close the brackets on the same line as a property, e.g.
 
 
 ```css
@@ -170,11 +180,11 @@ The correct way would be:
 
 
 * **Spacing between a property and its value**  
-A common begginers mistake is to not leave a space between a property and its value, for example `margin:0;`, when it should be `margin: 0;`
+A common beginners mistake is to not leave a space between a property and its value, for example `margin:0;`, when it should be `margin: 0;`
 
 * **Spaces between selectors**  
 
-Often a begginer developer will try to space out his code as much as possible for better readability, but they over do it. There should be no space seperating selectors, example:
+Often a beginner developer will try to space out his code as much as possible for better readability, but they over do it. There should be no space seperating selectors, example:
 ```css
 .class1 {
 	margin: 0;
