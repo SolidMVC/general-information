@@ -1,12 +1,13 @@
 This is an example, how the "Steel Blue" CRS CSS stylesheet is made from "Crimson Red" stylesheet.
 
 ---------------------------------------------------------------------------------------
-1. Let's say we are creating a compatibility for "Avada" Theme (FILE WILL BE NAMED: "compatibility.Avada.css").
+1. Let's say we your creating a compatibility for "Avada" Theme (FILE WILL BE NAMED: "Avada.css").
 
-2. Create a new folder in our current theme:
-"/wp-content/themes/MyTheme/ExpandableFAQ_UI/Extension1/Assets/Front/CSS/"
+2. Create a new folder in your current theme:
+   "/wp-content/themes/<YOUR_THEME_FOLDER>/<PLUGIN_NAME>UI/<EXTENSION_NAME>/Assets/Front/CSS/Compatibility/"
+  (i.e. /wp-content/themes/SuperTheme/GreatPluginUI/AmazingVoting/Assets/Front/CSS/Compatibility/)
 
-3. Create a new 'compatibility.Avada.css' file in that folder.
+3. Create a new 'Avada.css' file in that folder.
 
 4. Let's open our new CSS file and and update it's metadata information:
 /**
@@ -22,4 +23,4 @@ your theme 'style.css' file's meta description line, i.e. "Theme Name: Avada".
 
 5. Write any compatibility CSS you want to our theme.
 
-6. When you will make your theme compatible with our plugin, please let us know by writing an email to - info@nativerental.com - so that we could write that officially in our plugin description, that your theme is compatible with our plugin. And of course we will put a thank you message on the Envato store, that all the world would know who did this great job!
+6. When you will make your theme compatible with our plugin, please let us know by writing an email to - info (AT) nativerental [THEDOT] com - so that we could write that officially in our plugin description, that your theme is compatible with our plugin. And of course we will put a thank you message on the Envato store, that all the world would know who did this great job!

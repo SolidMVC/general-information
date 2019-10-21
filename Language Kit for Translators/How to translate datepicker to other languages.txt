@@ -1,0 +1,40 @@
+=============================================================
+Question: Can I translate date picker to Spanish?
+-------------------------------------------------------------
+Answer:
+Yes, you can. For Spanish translation, or any other translation, follow these instructions:
+ 1. Go to your plugin's (i.e. "\plugins\GreatPluginUI\") "\UI\Common\Assets\3rdParty\jquery-ui\ui\i18n\" folder
+    (or take a copy from this folder's "\Datepicker\i18n\" folder).
+ 
+ 2. Copy file "datepicker-en-US.js" as "\wp-content\themes\<YOUR_THEME>\<YOUR_PLUGIN_FOLDER_NAME>UI\Common\Assets\3rdParty\jquery-ui\ui\i18n\datepicker-en-US.js"
+ to keep translation file safe from being deleted during plugin update process
+ (i.e. to \wp-content\themes\SuperTheme\GreatPluginUI\Common\Assets\3rdParty\jquery-ui\ui\i18n\datepicker-en-US.js").
+ 
+ 3. Name copied file as "datepicker-es.js"
+ (full list of language codes for other languages is in the file "WordPress Language codes", or it can be found here:  https://www.softaculous.com/docs/Scripts_Language_Codes or here http://wpcentral.io/internationalization/ )
+ 
+ 4. Now just open that "es_ES.js" file, and change the right words to Spanish, i.e.
+ FROM "Today":
+ currentText: 'Today',
+ TO "Este Dia" (I believe "Today" in Spanish is "Este Dia"):
+ currentText: 'Este Dia',
+ 
+ 5. Make sure you set proper day to start a week on 'firstDay' parameter.
+ '0' stands for 'Sunday', '1' stands for 'Monday', '2' stands for 'Tuesday' etc.. I.e.:
+ firstDay: 1,
+ 
+ 6. If your language text is written in 'Right to Left', set RTL mode to TRUE:
+ isRTL: true,
+ 
+ 7. Now just switch the WordPress system language to Spanish (you may need to Download WordPress Spanish package from official WordPress website, or National WordPress support website in Spain). The car rental plugin language will become Spanish automatically.
+ 
+ 8. When you get Spanish version translated, please send it to us - info (AT) nativerental [THEDOT] com - so that we could add it to official plugin's package. And of course we will put a thank you message on the Envato marketplace, and at the beginning of the translated language file, that all the world would know who did this great job!
+ 
+ 9. Please encode language file in "UTF-8 without BOM" mode (so that we could see Spanish characters).
+ If you use Notepad++, to encode your translated language file in "UTF-8 without BOM" please do the following steps:
+ 9.1. Make a copy of your translator file.
+ 9.2. Open that copied file with Notepad++.
+ 9.3. Click on the "Encoding" dropdown menu.
+ 9.4. Select “Convert to UTF-8 without BOM” option.
+ 9.5. Save this file by pressing CTRL+S and send it to us.
+ 9.6. Thank you so much!

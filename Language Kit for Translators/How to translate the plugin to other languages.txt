@@ -3,34 +3,36 @@ Question: Can I translate the plugin to Spanish?
 -------------------------------------------------------------
 Answer:
 Yes, you can. For Spanish translation, or any other translation, follow these instructions:
- 1. Go to the "Native System" plugin's "/Languages/<EXTENSION_NAME>/" folder (or take a copy from this folder).
+ 1. Go to the plugin folder's "\UI\<EXTENSION_NAME>\Languages\" folder
+ (i.e. to "\plugins\GreatPlugin\UI\AmazingVoting\Languages\" folder).
  
- 2. Copy file "en_US.php" as "wp-content/languages/<EXTENSION_NAME>/en_US.php" to keep translation
- file safe from being deleted during plugin update process.
+ 2. Copy language files to keep translation file safe from being deleted during plugin update process:
+ 2.1. "core-en_US.php" as "\wp-content\languages\FleetManagement\core-en_US.php".
+ 2.2. "Common\en_US.php" as "\wp-content\languages\FleetManagement\Common\en_US.php".
+ 2.3. "<EXTENSION_NAME>\en_US.php" as "\wp-content\languages\FleetManagement\<EXTENSION_NAME>\en_US.php".
  
- 3. Name copied file as "<LOCALE>.php", i.e. for Spanish  "es_ES.php"
+ 3. Name copied files as "core-{$locale}.php", "Common\{$locale}.php" and "<EXTENSION_NAME>\{$locale}.php",
+ i.e. for Spanish on "AmazingVoting" extension it is - "core-es_ES.php", "Common\es_ES.php" and "AmazingVoting\es_ES.php" respectively;
  (full list of language codes for other languages is in the file "WordPress Language codes", or it can be found here:  https://www.softaculous.com/docs/Scripts_Language_Codes or here http://wpcentral.io/internationalization/ )
  
  4. Now just open that "es_ES.php" file, and change the right words to Spanish, i.e.
  FROM "Car":
- $lang['NS_ITEM_TEXT'] = 'Car';
+ 'LANG_ITEM_TEXT' => 'Car',
  TO "Coche" (I believe "Car" in Spanish is "Coche"):
- $lang['NS_ITEM_TEXT'] = 'Coche';
+ 'LANG_ITEM_TEXT' => 'Coche',
  
- 5. If your language text is written in 'Right to Left', set RTL mode to TRUE:
- $lang['LTR'] = TRUE;
+ 5. If your language text is written in 'Right to Left', set RTL mode to TRUE in core-<LANGUAGE_CODE>.php:
+ 'LTR' => TRUE,
  
  6. Now just switch the WordPress system language to Spanish (you may need to Download WordPress Spanish package from official WordPress website, or National WordPress support website in Spain). The car rental plugin language will become Spanish automatically.
+
+ 7. When you get Spanish version translated, please send it to us - info@nativerental.com - so that we could add it to official plugin's package. And of course we will put a thank you message on the Envato store, to the documentation, and at the beginning of the translated language file, that all the world would know who did this great job!
  
- 7. In case if you want to keep your WordPress website language in Spanish, but WordPress administration language in English, please download addition WordPress plugins like "Backend language" ( https://wordpress.org/plugins/kau-boys-backend-localization/ , lightweight ) or WPML ( https://wpml.org/ , Heavy weight). "Backend language" plugin is included in the package - it's file named "kau-boys-backend-localization.zip"  and it's located in "/crs-optional-tools-plugins-themes/plugins/" directory)
- 
- 8. When you get Spanish version translated, please send it to us - info@nativerental.com - so that we could add it to official plugin's package. And of course we will put a thank you message on the Envato store, to the documentation, and at the beginning of the translated language file, that all the world would know who did this great job!
- 
- 9. I will ask you to encode language file in "UTF-8 without BOM" mode (so that I could see Spanish characters).
+ 8. I will ask you to encode language file in "UTF-8 without BOM" mode (so that I could see Spanish characters).
  If you use Notepad++, to encode your translated language file in "UTF-8 without BOM" please do the following steps:
- 9.1. Make a copy of your translator file.
- 9.2. Open that copied file with Notepad++.
- 9.3. Click on the "Encoding" dropdown menu.
- 9.4. Select “Convert to UTF-8 without BOM” option.
- 9.5. Save this file by pressing CTRL+S and send it tous.
- 9.6. Thank you so much!
+ 8.1. Make a copy of your translator file.
+ 8.2. Open that copied file with Notepad++.
+ 8.3. Click on the "Encoding" dropdown menu.
+ 8.4. Select “Convert to UTF-8 without BOM” option.
+ 8.5. Save this file by pressing CTRL+S and send it tous.
+ 8.6. Thank you so much!

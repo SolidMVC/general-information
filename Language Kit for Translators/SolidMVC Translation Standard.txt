@@ -7,8 +7,8 @@ NATIVE TRANSLATION STANDARD FOR LANGUAGE FILES:
 3. The element naming should NEVER be based on things like:
 	 'ADMIN' / 'NON-ADMIN' section (no 'admin' prefixes or suffixes allowed)
 	 'AJAX' / 'NON-AJAX' language rows (no 'ajax' prefixes or suffixes allowed)
-	 'ALERT' / 'ERROR' grouping for HTML errors VS Javascript Alerts (no 'alert' prefixes or suffixes allowed - we MUST always suffix those errors with the 'ERROR' suffix, despite is that a JS alert error or HTML error)
-	 Suffixes / Prefixes like '_ROLE_NAME', 'ADMIN_MENU_' or silimar are NOT ALLOWED
+	 'ALERT' / 'ERROR' grouping for HTML errors VS JavaScript Alerts (no 'alert' prefixes or suffixes allowed - we MUST always suffix those errors with the 'ERROR' suffix, despite is that a JS alert error or HTML error)
+	 Suffixes / Prefixes like '_ROLE_NAME', 'ADMIN_MENU_' or similar are NOT ALLOWED
 	 
 4. There CANNOT be any global okay / error messages sections. Any okay / error message should be only in that actual element okay / error messages section.
 
@@ -16,4 +16,4 @@ NATIVE TRANSLATION STANDARD FOR LANGUAGE FILES:
 
 6. The words '_SELECT', '_SHORT' etc. goes AFTER the name, i.e. we must use 'NS_ITEM_PAGE_SELECT' and NOT the 'NS_ITEM_SELECT_PAGE', nor the 'NS_SELECT_ITEM_PAGE'. That helps us to have clear grouping and all related element language rows for same purpose action will always be next to each other.
 
-7. DO NOT translate the language file commments (those that start with '//') - they are used for identification, and should never be translated.
+7. DO NOT translate the language file comments (those that start with '//') - they are used for identification, and should never be translated.
